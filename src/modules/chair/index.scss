@@ -2,17 +2,33 @@
   width: 35px;
   height: 35px;
   background: #ccc;
-  margin-right: 3px;
-  margin-bottom: 3px;
+  margin: 5px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  transition: all .3s;
+
+  &:hover {
+    background: rgb(220, 115, 92);
+    transform: translateY(-4px);
+  }
+
 
   &.gheVip {
-    background-color: pink;
+    background-color: lightcoral;
   }
+
   &.dangDat {
-    background-color: yellow;
+    background-color: yellowgreen;
   }
+
   &.daDat {
-    cursor: not-allowed;
     background-color: gray;
+    cursor: no-drop;
+
+    &.hover {
+      transform: none !important;
+    }
   }
+
 }
