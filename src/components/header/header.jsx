@@ -60,7 +60,7 @@ export default function Header() {
             </>
           ) : (
             <>
-              <span>Xin chào {userState.userInfo.hoTen}</span>
+              <span>Xin chào {userState.userInfo.hoTen} </span>
               <button onClick={handleLogout} className='btn btn-info'>
                 ĐĂNG XUẤT
               </button>
