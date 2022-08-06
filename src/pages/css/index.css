@@ -1,0 +1,100 @@
+.bookingMovie {
+  width: 100%;
+  height: 100%;
+  background-image: url("./img/One-Piece-Film-Red-1024x576.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 2;
+}
+.bookingMovie .overLay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(59, 55, 55);
+  z-index: 9;
+  opacity: 0.9;
+}
+.bookingMovie .screen {
+  background-image: url("./img/bg-screen.png");
+  width: 100%;
+  height: 45px;
+  margin: 20px auto 40px;
+  background-size: 100% auto;
+  filter: drop-shadow(4px 25px 20px rgba(194, 190, 190, 0.5));
+  box-shadow: 0px 34px 51px -8px rgb(117, 105, 105);
+}
+.bookingMovie .hangGheStyle {
+  color: white;
+  margin-top: 1px;
+}
+.bookingMovie .hangGheStyle div:first-of-type div {
+  margin-left: 7px;
+  font-weight: bold;
+}
+.bookingMovie .rowNumber {
+  font-size: 20px;
+  width: 45px;
+  height: 35px;
+  background: none;
+  border: none;
+  margin-bottom: 1%;
+  font-size: 15px;
+  color: yellow;
+  margin-left: 8px;
+}
+.bookingMovie .firstChar {
+  color: yellow;
+  font-size: 35px;
+  margin-right: 15px;
+}
+.bookingMovie .ghe, .bookingMovie .note__ghe {
+  border: 3px solid red;
+  width: 45px;
+  height: 35px;
+  font-size: 15px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2px !important;
+  margin: 5px;
+  transition: all 0.5s;
+}
+.bookingMovie .ghe:hover, .bookingMovie .note__ghe:hover {
+  transform: translateY(-10px);
+}
+.bookingMovie .ghe:focus, .bookingMovie .note__ghe:focus {
+  outline: none;
+}
+.bookingMovie .selecting_seats, .bookingMovie .note__selecting {
+  background: rgb(109, 238, 109);
+  border: 3px solid rgb(109, 238, 109);
+  color: #000;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 45px;
+  height: 35px;
+  border: 3px solid transparent;
+}
+.bookingMovie .selecting_seats:focus, .bookingMovie .note__selecting:focus {
+  outline: none;
+}
+.bookingMovie .booked_seats, .bookingMovie .note__booked {
+  border: 3px solid red;
+  background: red;
+  color: #000;
+  cursor: no-drop;
+  border-radius: 5px;
+  width: 45px;
+  height: 35px;
+}
+.bookingMovie .booked_seats:focus, .bookingMovie .note__booked:focus {
+  outline: none;
+}
+.bookingMovie .noteSpan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=index.css.map */

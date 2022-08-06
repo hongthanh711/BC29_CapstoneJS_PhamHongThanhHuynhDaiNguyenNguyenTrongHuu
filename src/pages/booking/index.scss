@@ -1,7 +1,7 @@
 .bookingMovie {
     width: 100%;
     height: 100%;
-    background-image: url('./img/One-Piece-Film-Red-1024x576.jpg');
+    background-image: url('../../../public/img/One-Piece-Film-Red-1024x576.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,13 +14,13 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgb(59, 55, 55);
+        background-color: rgb(0, 0, 0);
         z-index: 9;
-        opacity: 0.9;
+        opacity: .9;
     }
 
     .screen {
-        background-image: url('./img/bg-screen.png');
+        background-image: url('../../../public/img/bg-screen.png');
         width: 100%;
         height: 45px;
         margin: 20px auto 40px;
@@ -39,8 +39,6 @@
         margin-left: 7px;
         font-weight: bold;
     }
-
-
 
     .rowNumber {
         font-size: 20px;
@@ -73,7 +71,6 @@
 
         &:hover {
             transform: translateY(-10px);
-
         }
 
         &:focus {
@@ -110,49 +107,27 @@
         }
     }
 
-}
 
 
 
 
 
 
-.noteSpan {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .noteSpan {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.note__ghe {
-    border: 3px solid red;
-    width: 45px;
-    height: 35px;
-    font-size: 15px;
-    border-radius: 5px;
-    text-align: center;
-    padding: 2px !important;
-    margin: 5px;
-    transition: all .5s;
-}
+    .note__ghe {
+        @extend.ghe;
+    }
 
-.note__booked {
-    border: 3px solid red;
-    width: 45px;
-    height: 35px;
-    background: red;
-    color: #000;
-    margin-left: -15px;
-    cursor: no-drop;
-    border-radius: 5px;
-}
+    .note__booked {
+        @extend .booked_seats
+    }
 
-.note__selecting {
-    border: 3px solid rgb(109, 238, 109);
-    background: rgb(109, 238, 109);
-    width: 45px;
-    height: 35px;
-    color: #000;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 3px solid transparent;
+    .note__selecting {
+        @extend .selecting_seats
+    }
 }

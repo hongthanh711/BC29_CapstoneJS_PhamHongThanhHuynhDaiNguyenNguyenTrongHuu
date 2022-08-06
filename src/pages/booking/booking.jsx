@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.scss';
 
 export default function Booking() {
     return <div class="bookingMovie ">
