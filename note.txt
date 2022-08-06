@@ -1,0 +1,27 @@
+window: npm install -g vercel
+macos: sudo npm install -g vercel
+
+1/ npm run build
+2/ vercel
+
+
+Vercel CLI 27.3.3
+? Set up and deploy “~/Desktop/BC29/reactjs-structure”? [Y/n] y
+? Which scope do you want to deploy to? mjzzyou137
+? Link to existing project? [y/N] n
+? What’s your project’s name? bc29-reactjs-mannguyen
+? In which directory is your code located? ./
+Local settings detected in vercel.json:
+Auto-detected Project Settings (Create React App):
+- Build Command: react-scripts build
+- Development Command: react-scripts start
+- Install Command: `yarn install`, `pnpm install`, or `npm install`
+- Output Directory: build
+? Want to modify these settings? [y/N] n
+🔗  Linked to mjzzyou137/bc29-reactjs-mannguyen (created .vercel and added it to .gitignore)
+🔍  Inspect: https://vercel.com/mjzzyou137/bc29-reactjs-mannguyen/4puP7N3NgqMD6LntVKjdV9HP2tZu [2s]
+⠹ Building
+
+
+bc29-reactjs.vercel.app
+bc29-reactjs.com

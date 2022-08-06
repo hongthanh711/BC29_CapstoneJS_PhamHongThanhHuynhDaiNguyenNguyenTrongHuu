@@ -1,0 +1,18 @@
+.ghe {
+  width: 35px;
+  height: 35px;
+  background: #ccc;
+  margin-right: 3px;
+  margin-bottom: 3px;
+
+  &.gheVip {
+    background-color: pink;
+  }
+  &.dangDat {
+    background-color: yellow;
+  }
+  &.daDat {
+    cursor: not-allowed;
+    background-color: gray;
+  }
+}
