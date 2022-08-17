@@ -1,46 +1,50 @@
-import React from "react";
-import { useRoutes } from "react-router-dom";
-import AdminGuard from "../guards/admin.guard";
-import AuthGuard from "../guards/auth.guard";
-import NoAuthGuard from "../guards/no-auth.guard";
-import AdminLayout from "../layouts/admin";
-import HomeLayout from "../layouts/home";
-import Booking from "../pages/booking/booking";
-import Home from "../pages/home/home";
-import Login from "../pages/login/login";
-import MovieDetail from "../pages/movie-detail/movie-detail";
-import MovieManagement from "../pages/movie-management/movie-management";
+import UpdateMovie from 'pages/update-movie/update-movie';
+import React, { lazy } from 'react';
+import { useRoutes } from 'react-router-dom';
+const AdminGuard = lazy(() => import('../guards/admin.guard'));
+const AuthGuard = lazy(() => import('../guards/auth.guard'));
+const NoAuthGuard = lazy(() => import('../guards/no-auth.guard'));
+const AdminLayout = lazy(() => import('../layouts/admin'));
+const Booking = lazy(() => import('pages/booking/booking'));
+const Login = lazy(() => import('pages/login/login'));
+const MovieManagement = lazy(() =>
+  import('pages/movie-management/movie-management')
+);
+const HomeLayout = lazy(() => import('../layouts/home'));
+const Home = lazy(() => import('pages/home/home'));
+const MovieDetail = lazy(() => import('pages/movie-detail/movie-detail'));
+const CreateMovie = lazy(() => import('pages/create-movie/create-movie'));
 
 export default function Router() {
   const routing = useRoutes([
     {
-      path: "/",
+      path: '/',
       element: <HomeLayout />,
       children: [
         {
-          path: "/",
+          path: '/',
           element: <Home />,
         },
         {
-          path: "/movie/:movieId",
+          path: '/movie/:movieId',
           element: <MovieDetail />,
         },
         {
-          path: "/",
+          path: '/',
           element: <AuthGuard />,
           children: [
             {
-              path: "/booking/:maLichChieu",
+              path: '/booking/:maLichChieu',
               element: <Booking />,
             },
           ],
         },
         {
-          path: "/",
+          path: '/',
           element: <NoAuthGuard />,
           children: [
             {
-              path: "/login",
+              path: '/login',
               element: <Login />,
             },
           ],
@@ -48,16 +52,24 @@ export default function Router() {
       ],
     },
     {
-      path: "/admin",
+      path: '/admin',
       element: <AdminLayout />,
       children: [
         {
-          path: "/admin/",
+          path: '/admin/',
           element: <AdminGuard />,
           children: [
             {
-              path: "/admin/movie-management",
+              path: '/admin/movie-management',
               element: <MovieManagement />,
+            },
+            {
+              path: '/admin/movie-management/create',
+              element: <CreateMovie />,
+            },
+            {
+              path: '/admin/movie-management/:movieId/update',
+              element: <UpdateMovie />,
             },
           ],
         },
