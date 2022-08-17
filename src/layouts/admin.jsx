@@ -1,9 +1,9 @@
 import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
+  ClockCircleTwoTone,
+  EyeOutlined,
   UserOutlined,
+  FolderViewOutlined,
+  FolderAddOutlined,
 } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu } from "antd";
 import React, { useState } from "react";
@@ -20,18 +20,15 @@ function getItem(label, key, icon, children) {
 }
 
 const items = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
+  getItem("Users", "sub1", <UserOutlined />, [
+    getItem("User Admin", "3", <UserOutlined />),
+    getItem("User ", "4", <UserOutlined />),
   ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
+  getItem("Films", "sub2", <EyeOutlined />, [
+    getItem("Film", "6", <FolderViewOutlined />),
+    getItem("Add Moive", "8", <FolderAddOutlined />),
   ]),
-  getItem("Files", "9", <FileOutlined />),
+  getItem("Showtimes", "9", <ClockCircleTwoTone />),
 ];
 
 export default function AdminLayout() {

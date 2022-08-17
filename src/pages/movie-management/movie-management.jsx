@@ -1,5 +1,6 @@
-import React from "react";
+import MovieTable from 'modules/movie-table/movie-table';
+import React from 'react';
 
 export default function MovieManagement() {
-  return <div>movie-management</div>;
+  return <MovieTable />;
 }

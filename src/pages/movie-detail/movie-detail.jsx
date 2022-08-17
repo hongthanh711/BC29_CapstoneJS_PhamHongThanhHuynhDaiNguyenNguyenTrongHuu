@@ -1,7 +1,7 @@
 import React from 'react';
 import Detail from '../../modules/detail/detail';
 import ShowTimes from '../../modules/show-times/show-times';
-import './movie-detail.scss'
+
 export default function MovieDetail() {
   return (
     <div className="py-5">
