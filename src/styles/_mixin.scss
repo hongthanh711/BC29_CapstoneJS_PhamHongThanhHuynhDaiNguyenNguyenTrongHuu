@@ -1,0 +1,50 @@
+
+@mixin textStyle($fontSize, $fontWeight, $lineHeight, $color) {
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+    color: $color;
+}
+
+@mixin img($width, $height) {
+    width: $width ;
+    height: $height;
+    display: block;
+}
+
+@mixin mediaQuery ($type) {
+    @if $type ==$xs {
+        @media screen and (max-width: $xs) {
+            @content;
+        }
+    }
+
+    @else if $type ==$sm {
+        @media screen and (max-width: $sm) {
+            @content;
+        }
+    }
+
+    @else if $type ==$md {
+        @media screen and (max-width: $md) {
+            @content;
+        }
+    }
+
+    @else {
+        @media screen and (max-width: $lg) {
+            @content;
+        }
+    }
+}
+
+//animate
+@mixin animate-1 ($aniName, $delay) {
+    animation-name: $aniName;
+    animation-duration: 800ms;
+    animation-timing-function: ease-in-out;
+    animation-delay: $delay;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-play-state: running;
+}

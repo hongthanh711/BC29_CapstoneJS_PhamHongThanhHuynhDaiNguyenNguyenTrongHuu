@@ -1,3 +1,7 @@
+@import '../../styles/mixin';
+@import '../../styles/variables';
+
+
 .ghe {
   width: 35px;
   height: 35px;
@@ -5,8 +9,8 @@
   margin-right: 3px;
   margin-bottom: 3px;
 
-  &.gheVip {
-    background-color: pink;
+  &.gheVip {   
+    background-color: $pink;
   }
   &.dangDat {
     background-color: yellow;
