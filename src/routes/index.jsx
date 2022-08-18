@@ -1,5 +1,5 @@
 import CreateUser from 'pages/create-user/create-user'
-import Register from 'pages/register/register'
+import RegisterForm from 'pages/register-form/register-form'
 import UpdateMovie from 'pages/update-movie/update-movie'
 import UserInfo from 'pages/user-info/user-info'
 import UserManagement from 'pages/user-management/user-management'
@@ -52,8 +52,8 @@ export default function Router() {
                     ],
                 },
                 {
-                    path: '/register',
-                    element: <Register />,
+                    path: '/register-form',
+                    element: <RegisterForm />,
                 },
                 { path: '/profile', element: <UserInfo /> },
             ],
