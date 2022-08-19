@@ -4,7 +4,8 @@ import UpdateMovie from 'pages/update-movie/update-movie'
 import UserInfo from 'pages/user-info/user-info'
 import UserManagement from 'pages/user-management/user-management'
 import React, { lazy } from 'react'
-import { useRoutes } from 'react-router-dom'
+import { Navigate, useNavigate, useRoutes } from 'react-router-dom'
+
 const AdminGuard = lazy(() => import('../guards/admin.guard'))
 const AuthGuard = lazy(() => import('../guards/auth.guard'))
 const NoAuthGuard = lazy(() => import('../guards/no-auth.guard'))
@@ -63,9 +64,10 @@ export default function Router() {
             element: <AdminLayout />,
             children: [
                 {
-                    path: '/admin/',
+                    path: '/admin',
                     element: <AdminGuard />,
                     children: [
+                        // { path: '/admin', element: <Navigate to="/admin/movie-management" /> },
                         {
                             path: '/admin/movie-management',
                             element: <MovieManagement />,

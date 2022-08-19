@@ -1,21 +1,14 @@
-import { Button, Form, Input, InputNumber } from 'antd'
+import { Button, Form, Input, InputNumber, Select } from 'antd'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
 }
 
-// const validateMessages = {
-//     required: '${label} is required!',
-//     types: {
-//         email: '${label} is not a valid email!',
-//         number: '${label} is not a valid number!',
-//     },
-//     number: {
-//         range: '${label} must be between ${min} and ${max}',
-//     },
-// };
-export default function RegisterForm() {
+export default function CreateUserForm() {
+    const navigate = useNavigate()
+
     const onFinish = (values) => {
         console.log(values)
     }
@@ -26,7 +19,7 @@ export default function RegisterForm() {
                     {/* validateMessages={validateMessages}  name="nest-messages"*/}
                     <Form {...layout} onFinish={onFinish}>
                         <div className="form-group text-center">
-                            <h4 className="text-warning">Register Form</h4>
+                            <h1>ADD USER</h1>
                         </div>
                         <Form.Item
                             name="userName"
@@ -107,12 +100,28 @@ export default function RegisterForm() {
                         >
                             <Input />
                         </Form.Item>
+
+                        <Form.Item label="Select">
+                            <Select>
+                                <Select.Option value="KhachHang">Khách hàng</Select.Option>
+                                <Select.Option value="QuanTri">Quản trị</Select.Option>
+                            </Select>
+                        </Form.Item>
+
                         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-                            <Button type="primary" htmlType="submit">
-                                Submit
-                            </Button>
+                            <div className="text-right">
+                                <Button type="danger" htmlType="submit" className="mr-2">
+                                    Add
+                                </Button>
+                                <Button type="primary" htmlType="submit">
+                                    Update
+                                </Button>
+                            </div>
                         </Form.Item>
                     </Form>
+                    <a onClick={() => navigate('/admin/user-management')} className="text-primary">
+                        &lt;&lt;Back
+                    </a>
                 </div>
             </div>
         </div>
