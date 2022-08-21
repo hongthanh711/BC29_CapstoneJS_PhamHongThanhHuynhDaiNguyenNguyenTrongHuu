@@ -13,7 +13,7 @@ export default function UserTable() {
 
     const columns = [
         {
-            title: 'STT',
+            title: 'No',
             dataIndex: 'stt',
             key: 'stt',
             render: (text, record) => {
@@ -22,17 +22,17 @@ export default function UserTable() {
             },
         },
         {
-            title: 'Tài Khoản',
+            title: 'Username',
             dataIndex: 'taiKhoan',
             key: 'taiKhoan',
         },
         {
-            title: 'Mật khẩu',
+            title: 'Password',
             dataIndex: 'matKhau',
             key: 'matKhau',
         },
         {
-            title: 'Họ tên',
+            title: 'Fullname',
             key: 'hoTen',
             dataIndex: 'hoTen',
         },
@@ -42,12 +42,12 @@ export default function UserTable() {
             dataIndex: 'email',
         },
         {
-            title: 'Số điện thoại',
+            title: 'Phone',
             key: 'soDT',
             dataIndex: 'soDT',
         },
         {
-            title: 'Thao tác',
+            title: 'Action',
             key: 'thaoTac',
             render: (_, record) => (
                 <Space size="middle">
