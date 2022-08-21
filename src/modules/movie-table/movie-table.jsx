@@ -4,6 +4,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { fetchMovieListApi } from 'services/movie'
 import { formatDate } from 'utils/common'
+import { DeleteFilled, EditFilled, DiffFilled } from '@ant-design/icons'
 
 export default function MovieTable() {
     const navigate = useNavigate()
@@ -13,12 +14,12 @@ export default function MovieTable() {
 
     const columns = [
         {
-            title: 'Tên phim',
+            title: 'Movie Name',
             dataIndex: 'tenPhim',
             key: 'tenPhim',
         },
         {
-            title: 'Ngày khởi chiếu',
+            title: 'Show Date',
             dataIndex: 'ngayKhoiChieu',
             key: 'ngayKhoiChieu',
             render: (text) => {
@@ -26,7 +27,7 @@ export default function MovieTable() {
             },
         },
         {
-            title: 'Đánh giá',
+            title: 'Rate',
             dataIndex: 'danhGia',
             key: 'danhGia',
         },
@@ -39,9 +40,14 @@ export default function MovieTable() {
                         onClick={() => navigate(`/admin/movie-management/${record.maPhim}/update`)}
                         className="btn btn-success"
                     >
-                        Sửa
+                        <EditFilled />
                     </button>
-                    <button className="btn btn-danger">Xóa</button>
+                    <button className="btn btn-danger">
+                        <DeleteFilled />
+                    </button>
+                    <button className="btn btn-info">
+                        <DiffFilled />
+                    </button>
                 </Space>
             ),
         },

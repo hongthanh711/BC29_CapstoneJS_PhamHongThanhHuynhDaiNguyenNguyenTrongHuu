@@ -28,7 +28,6 @@ const items = [
         getItem('Film', '/admin/movie-management', <FolderViewOutlined />),
         getItem('Add Moive', '/admin/movie-management/create', <FolderAddOutlined />),
     ]),
-    getItem('Showtimes', '9', <ClockCircleTwoTone />),
 ]
 
 export default function AdminLayout() {
