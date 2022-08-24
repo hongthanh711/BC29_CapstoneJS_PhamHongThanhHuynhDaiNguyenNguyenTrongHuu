@@ -1,3 +1,4 @@
+import CreateShowtime from 'pages/create-showtime/create-showtime'
 import CreateUser from 'pages/create-user/create-user'
 import RegisterForm from 'pages/register-form/register-form'
 import UpdateMovie from 'pages/update-movie/update-movie'
@@ -80,12 +81,18 @@ export default function Router() {
                             path: '/admin/movie-management/:movieId/update',
                             element: <UpdateMovie />,
                         },
-                        { path: '/admin/movie-management/showtime/:movieId' },
+                        {
+                            path: '/admin/movie-management/showtime/:movieId',
+                            element: <CreateShowtime />,
+                        },
                         {
                             path: '/admin/user-management',
                             element: <UserManagement />,
                         },
-                        { path: '/admin/user-management/create', element: <CreateUser /> },
+                        {
+                            path: '/admin/user-management/create',
+                            element: <CreateUser />
+                        },
                     ],
                 },
             ],

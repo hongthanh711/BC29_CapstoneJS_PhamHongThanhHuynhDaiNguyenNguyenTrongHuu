@@ -20,6 +20,7 @@ import { fetchMovieDetailApi } from 'services/movie'
 import { addMovieUploadImage } from 'services/movie'
 import moment from 'moment'
 import { updateMovieUploadImage } from 'services/movie'
+import { isEmpty } from 'lodash'
 
 export default function MovieForm() {
     const [componentSize, setComponentSize] = useState('default')
@@ -56,27 +57,6 @@ export default function MovieForm() {
         values.maNhom = GROUP_ID
 
         const formData = new FormData()
-
-        // const {
-        //   tenPhim,
-        //   trailer,
-        //   moTa,
-        //   dangChieu,
-        //   sapChieu,
-        //   ngayKhoiChieu,
-        //   danhGia,
-        //   hot,
-        // } = values;
-
-        // formData.append('tenPhim', tenPhim);
-        // formData.append('trailer', trailer);
-        // formData.append('moTa', moTa);
-        // formData.append('dangChieu', dangChieu);
-        // formData.append('sapChieu', sapChieu);
-        // formData.append('ngayKhoiChieu', ngayKhoiChieu);
-        // formData.append('danhGia', danhGia);
-        // formData.append('hot', hot);
-
         for (const key in values) {
             formData.append(key, values[key])
         }
@@ -138,16 +118,69 @@ export default function MovieForm() {
                     <Radio.Button value="large">Large</Radio.Button>
                 </Radio.Group>
             </Form.Item>
-            <Form.Item label="Movie Name" name="tenPhim">
+            <Form.Item
+                label="Movie Name"
+                name="tenPhim"
+                rules={[
+                    {
+                        validator: (rules, value) => {
+                            if (isEmpty(value)) {
+                                return Promise.reject("Tên phim không được bỏ trống.")
+                            }
+                            return Promise.resolve()
+                        }
+                    },
+                    {
+                        pattern:
+                            '^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+$',
+                        message: 'Tên phim không đúng định dạng. '
+                    }
+                ]}
+            >
                 <Input />
             </Form.Item>
-            <Form.Item label="Trailer" name="trailer">
+            <Form.Item
+                label="Trailer"
+                name="trailer"
+                rules={[{
+                    validator: (rules, value) => {
+                        if (isEmpty(value)) {
+                            return Promise.reject("Trailer không được bỏ trống.")
+                        }
+                        return Promise.resolve()
+                    }
+                },]}
+            >
                 <Input />
             </Form.Item>
-            <Form.Item label="Des" name="moTa">
+            <Form.Item
+                label="Description"
+                name="moTa"
+                rules={[
+                    {
+                        validator: (rules, value) => {
+                            if (isEmpty(value)) {
+                                return Promise.reject("Mô tả không được bỏ trống.")
+                            }
+                            return Promise.resolve()
+                        }
+                    }
+                ]}
+            >
                 <Input />
             </Form.Item>
-            <Form.Item label="Showing Date" name="ngayKhoiChieu">
+            <Form.Item
+                label="Showing Date"
+                name="ngayKhoiChieu"
+                rules={[{
+                    validator: (rules, value) => {
+                        if (isEmpty(value)) {
+                            return Promise.reject("Ngày khởi chiếu không được bỏ trống.")
+                        }
+                        return Promise.resolve()
+                    }
+                },]}
+            >
                 <DatePicker />
             </Form.Item>
             <Form.Item label="Showing" valuePropName="checked" name="dangChieu">
@@ -159,17 +192,36 @@ export default function MovieForm() {
             <Form.Item label="Hot" valuePropName="checked" name="hot">
                 <Switch />
             </Form.Item>
-            <Form.Item label="Rate" name="danhGia">
+            <Form.Item
+                label="Rate"
+                name="danhGia"
+                rules={[
+                    { min: 1, message: 'Số sao phải lớn hơn 0', type: 'number' },
+                    { max: 10, message: 'Số sao nhỏ hơn hoặc bằng 10', type: 'number' },
+                ]}
+            >
                 <InputNumber />
             </Form.Item>
-            <Form.Item label="File">
+            <Form.Item label="File"
+            >
                 <Input type="file" onChange={handleChangeImage} />
             </Form.Item>
             <Image src={image} />
-            <Form.Item>
-                <Button htmlType="submit" type="primary">
-                    SAVE
-                </Button>
+            <Form.Item shouldUpdate >
+                {() => {
+                    return (
+                        <Button
+                            htmlType="submit"
+                            type="primary"
+                            disabled={
+                                !form.isFieldsTouched() ||
+                                form.getFieldsError().some((ele) => ele.errors.length > 0)
+                            }
+                        >
+                            SAVE
+                        </Button>
+                    )
+                }}
             </Form.Item>
         </Form>
     )
