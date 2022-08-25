@@ -1,16 +1,22 @@
-import { Button, Space, Table, Tag } from 'antd'
+import { Button, message, notification, Space, Table, Tag } from 'antd'
 import { useAsync } from 'hooks/useAsync'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { fetchMovieListApi } from 'services/movie'
 import { formatDate } from 'utils/common'
 import { DeleteFilled, EditFilled, DiffFilled } from '@ant-design/icons'
+import { deleteMovieApi } from 'services/movie'
 
 export default function MovieTable() {
     const navigate = useNavigate()
     const { state: data = [] } = useAsync({
         service: () => fetchMovieListApi(),
     })
+
+    const deleteMovie = (movieId) => {
+        deleteMovieApi(movieId)
+        notification.warning({ message: 'Xóa phim thành công' })
+    }
 
     const columns = [
         {
@@ -42,7 +48,7 @@ export default function MovieTable() {
                     >
                         <EditFilled />
                     </button>
-                    <button className="btn btn-danger">
+                    <button onClick={() => deleteMovie(record.maPhim)} className="btn btn-danger">
                         <DeleteFilled />
                     </button>
                     <button className="btn btn-info">
