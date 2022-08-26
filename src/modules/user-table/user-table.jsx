@@ -13,14 +13,16 @@ export default function UserTable() {
         service: () => fetchUserListApi(),
     })
 
+    let count = 0
+
     const columns = [
         {
             title: 'No',
             dataIndex: 'stt',
             key: 'stt',
-            render: (text, record) => {
-                // console.log(record)
-                // console.log(text)
+            render: () => {
+                count += 1
+                return <p>{count}</p>
             },
         },
         {
