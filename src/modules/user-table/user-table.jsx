@@ -4,6 +4,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { fetchUserListApi } from 'services/user'
 
+import { EditFilled, DeleteFilled } from '@ant-design/icons'
+
 export default function UserTable() {
     const navigate = useNavigate()
 
@@ -11,14 +13,16 @@ export default function UserTable() {
         service: () => fetchUserListApi(),
     })
 
+    let count = 0
+
     const columns = [
         {
             title: 'No',
             dataIndex: 'stt',
             key: 'stt',
-            render: (text, record) => {
-                // console.log(record)
-                // console.log(text)
+            render: () => {
+                count += 1
+                return <p>{count}</p>
             },
         },
         {
@@ -51,8 +55,12 @@ export default function UserTable() {
             key: 'thaoTac',
             render: (_, record) => (
                 <Space size="middle">
-                    <button className="btn btn-success">Sửa</button>
-                    <button className="btn btn-danger">Xóa</button>
+                    <button className="btn btn-success">
+                        <EditFilled />
+                    </button>
+                    <button className="btn btn-danger">
+                        <DeleteFilled />
+                    </button>
                 </Space>
             ),
         },
