@@ -110,11 +110,8 @@ export default function CreateUserForm() {
 
                         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
                             <div className="text-right">
-                                <Button type="danger" htmlType="submit" className="mr-2">
+                                <Button type="primary" htmlType="submit" className="mr-2">
                                     Add
-                                </Button>
-                                <Button type="primary" htmlType="submit">
-                                    Update
                                 </Button>
                             </div>
                         </Form.Item>

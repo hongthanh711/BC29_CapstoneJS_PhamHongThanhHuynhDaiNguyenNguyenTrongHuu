@@ -1,10 +1,11 @@
-import { Button, Space, Table, Tag } from 'antd'
+import { Button, notification, Space, Table, Tag } from 'antd'
 import { useAsync } from 'hooks/useAsync'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { fetchUserListApi } from 'services/user'
 
 import { EditFilled, DeleteFilled } from '@ant-design/icons'
+import { deleteUserApi } from 'services/user'
 
 export default function UserTable() {
     const navigate = useNavigate()
@@ -12,6 +13,11 @@ export default function UserTable() {
     const { state: data = [] } = useAsync({
         service: () => fetchUserListApi(),
     })
+
+    const deleteUser = (taiKhoan) => {
+        deleteUserApi(taiKhoan)
+        notification.warning({ message: 'Successfuly' })
+    }
 
     let count = 0
 
@@ -58,7 +64,7 @@ export default function UserTable() {
                     <button className="btn btn-success">
                         <EditFilled />
                     </button>
-                    <button className="btn btn-danger">
+                    <button onClick={() => deleteUser(record.taiKhoan)} className="btn btn-danger">
                         <DeleteFilled />
                     </button>
                 </Space>

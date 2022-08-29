@@ -1,3 +1,4 @@
+import ProfileGuard from 'guards/profile.guard'
 import CreateUser from 'pages/create-user/create-user'
 import RegisterForm from 'pages/register-form/register-form'
 import UpdateMovie from 'pages/update-movie/update-movie'
@@ -53,10 +54,14 @@ export default function Router() {
                     ],
                 },
                 {
+                    path: '/',
+                    element: <ProfileGuard />,
+                    children: [{ path: '/profile', element: <UserInfo /> }],
+                },
+                {
                     path: '/register-form',
                     element: <RegisterForm />,
                 },
-                { path: '/profile', element: <UserInfo /> },
             ],
         },
         {

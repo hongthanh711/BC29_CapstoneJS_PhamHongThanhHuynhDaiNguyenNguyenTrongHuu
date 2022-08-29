@@ -57,26 +57,6 @@ export default function MovieForm() {
 
         const formData = new FormData()
 
-        // const {
-        //   tenPhim,
-        //   trailer,
-        //   moTa,
-        //   dangChieu,
-        //   sapChieu,
-        //   ngayKhoiChieu,
-        //   danhGia,
-        //   hot,
-        // } = values;
-
-        // formData.append('tenPhim', tenPhim);
-        // formData.append('trailer', trailer);
-        // formData.append('moTa', moTa);
-        // formData.append('dangChieu', dangChieu);
-        // formData.append('sapChieu', sapChieu);
-        // formData.append('ngayKhoiChieu', ngayKhoiChieu);
-        // formData.append('danhGia', danhGia);
-        // formData.append('hot', hot);
-
         for (const key in values) {
             formData.append(key, values[key])
         }
