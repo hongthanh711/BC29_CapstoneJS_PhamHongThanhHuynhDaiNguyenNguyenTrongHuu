@@ -1,7 +1,9 @@
+import ProfileGuard from 'guards/profile.guard'
 import CreateShowtime from 'pages/create-showtime/create-showtime'
 import CreateUser from 'pages/create-user/create-user'
 import RegisterForm from 'pages/register-form/register-form'
 import UpdateMovie from 'pages/update-movie/update-movie'
+import UpdateUser from 'pages/update-user/update-user'
 import UserInfo from 'pages/user-info/user-info'
 import UserManagement from 'pages/user-management/user-management'
 import React, { lazy } from 'react'
@@ -54,10 +56,14 @@ export default function Router() {
                     ],
                 },
                 {
+                    path: '/',
+                    element: <ProfileGuard />,
+                    children: [{ path: '/profile', element: <UserInfo /> }],
+                },
+                {
                     path: '/register-form',
                     element: <RegisterForm />,
                 },
-                { path: '/profile', element: <UserInfo /> },
             ],
         },
         {
@@ -68,7 +74,7 @@ export default function Router() {
                     path: '/admin',
                     element: <AdminGuard />,
                     children: [
-                        // { path: '/admin', element: <Navigate to="/admin/movie-management" /> },
+                        { path: '/admin/', element: <Navigate to="/admin/movie-management" /> },
                         {
                             path: '/admin/movie-management',
                             element: <MovieManagement />,
@@ -91,7 +97,11 @@ export default function Router() {
                         },
                         {
                             path: '/admin/user-management/create',
-                            element: <CreateUser />
+                            element: <CreateUser />,
+                        },
+                        {
+                            path: '/admin/user-management/update/:userId',
+                            element: <UpdateUser />,
                         },
                     ],
                 },

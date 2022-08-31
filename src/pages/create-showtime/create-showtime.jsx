@@ -5,25 +5,77 @@ import {
     Form,
     Input,
     InputNumber,
+    notification,
     Radio,
     Select,
     Switch,
     TreeSelect,
-} from 'antd';
-import React, { useState } from 'react';
+} from 'antd'
+import { useAsync } from 'hooks/useAsync'
+import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { addScheduleMovieApi } from 'services/cinema'
+import { fetchCinemaInfoApi } from 'services/cinema'
+import { fetchCinemaListApi } from 'services/cinema'
 
 export default function CreateShowtime() {
-    const [componentSize, setComponentSize] = useState('default');
+    const params = useParams()
+    const [cinemaId, setCinemaId] = useState()
+    const [componentSize, setComponentSize] = useState('default')
 
     const onFormLayoutChange = ({ size }) => {
-        setComponentSize(size);
-    };
+        setComponentSize(size)
+    }
 
-    return (
-        <div className='container'>
-            <div className='row justify-content-center'>
-                <div className='col-7'>
+    const { state: cinemaList } = useAsync({ service: () => fetchCinemaListApi() })
+
+    const renderCinemas = () => {
+        return cinemaList?.map((ele) => {
+            return (
+                <Select.Option key={ele.maHeThongRap} value={ele.maHeThongRap}>
+                    {ele.tenHeThongRap}
+                </Select.Option>
+            )
+        })
+    }
+
+    const handleChangeCinema = (value) => {
+        setCinemaId(value)
+    }
+
+    const { state: theater } = useAsync({
+        service: () => fetchCinemaInfoApi(cinemaId),
+        dependencies: [cinemaId],
+    })
+
+    const renderTheater = () => {
+        return theater?.map((ele) => {
+            return (
+                <Select.Option key={ele.maCumRap} value={ele.maCumRap}>
+                    {ele.tenCumRap}
+                </Select.Option>
+            )
+        })
+    }
+
+    const onFinish = async (value) => {
+        value.ngayChieuGioChieu = value.ngayChieuGioChieu.format('DD/MM/YYYY')
+        const data = {
+            ...value,
+            maPhim: params.movieId,
+        }
+        console.log(data)
+
+        await addScheduleMovieApi(data)
+        notification.success({ message: 'Successfully' })
+    }
+
+    return cinemaList ? (
+        <div className="container">
+            <div className="row justify-content-center">
+                <div className="col-7">
                     <Form
+                        onFinish={onFinish}
                         labelCol={{
                             span: 4,
                         }}
@@ -38,27 +90,32 @@ export default function CreateShowtime() {
                         size={componentSize}
                     >
                         <Form.Item label="Cinemas cluster">
-                            <Select>
-                                <Select.Option value="demo">Demo</Select.Option>
+                            <Select
+                                onChange={handleChangeCinema}
+                                defaultValue={cinemaList[0].maHeThongRap}
+                            >
+                                {renderCinemas()}
                             </Select>
                         </Form.Item>
-                        <Form.Item label="Theater cluster">
-                            <Select>
-                                <Select.Option value="demo">Demo</Select.Option>
-                            </Select>
+                        <Form.Item name="maRap" label="Theater cluster">
+                            <Select>{renderTheater()}</Select>
                         </Form.Item>
-                        <Form.Item label="Date">
+                        <Form.Item name="ngayChieuGioChieu" label="Date">
                             <DatePicker />
                         </Form.Item>
-                        <Form.Item label="Price">
+                        <Form.Item name="giaVe" label="Price">
                             <Input />
                         </Form.Item>
-                        <Form.Item label='Function'>
-                            <Button type='primary'>Thêm Lịch Chiếu</Button>
+                        <Form.Item label="Function">
+                            <Button htmlType="submit" type="primary">
+                                Thêm Lịch Chiếu
+                            </Button>
                         </Form.Item>
-                    </Form >
+                    </Form>
                 </div>
             </div>
         </div>
-    );
+    ) : (
+        'loading'
+    )
 }

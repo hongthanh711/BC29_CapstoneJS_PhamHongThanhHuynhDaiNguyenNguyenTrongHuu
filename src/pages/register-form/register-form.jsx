@@ -1,51 +1,66 @@
-import { Button, Form, Input, InputNumber } from 'antd'
-import React from 'react'
+import { Button, Form, Input, InputNumber, notification } from 'antd'
+import { GROUP_ID } from 'constants/common'
+import React, { useEffect } from 'react'
+import { updateUserInfoApi } from 'services/user'
+import { registerApi } from 'services/user'
 const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
 }
 
-// const validateMessages = {
-//     required: '${label} is required!',
-//     types: {
-//         email: '${label} is not a valid email!',
-//         number: '${label} is not a valid number!',
-//     },
-//     number: {
-//         range: '${label} must be between ${min} and ${max}',
-//     },
-// };
-export default function RegisterForm() {
-    const onFinish = (values) => {
-        console.log(values)
+export default function RegisterForm(props) {
+    const [form] = Form.useForm()
+
+    useEffect(() => {
+        if (props.userInfoFormApi) {
+            form.setFieldsValue(props.userInfoFormApi)
+        }
+    }, [props.userInfoFormApi])
+
+    const onFinish = async (values) => {
+        if (props.userInfoFormApi) {
+            const dataUpdated = {
+                ...values,
+                maNhom: GROUP_ID,
+                maLoaiNguoiDung: props.userInfoFormApi.maLoaiNguoiDung,
+            }
+            await updateUserInfoApi(dataUpdated)
+        } else {
+            const data = { ...values, maNhom: GROUP_ID }
+
+            await registerApi(data)
+        }
+
+        notification.success({ message: 'Successfully' })
     }
     return (
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-6">
-                    {/* validateMessages={validateMessages}  name="nest-messages"*/}
-                    <Form {...layout} onFinish={onFinish}>
+                    <Form form={form} {...layout} onFinish={onFinish}>
                         <div className="form-group text-center">
-                            <h4 className="text-warning">Register Form</h4>
+                            <h4 className="text-warning">
+                                {props.userInfoFormApi ? 'Profile' : 'Register Form'}
+                            </h4>
                         </div>
                         <Form.Item
-                            name="userName"
+                            name="taiKhoan"
                             label="User Name "
                             rules={[
                                 {
                                     required: true,
                                     message: 'User Name không được bỏ trống.',
                                 },
-                                {
-                                    pattern: '^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$',
-                                    message: 'User Name không đúng định dạng.',
-                                },
+                                // {
+                                //     pattern: '^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$',
+                                //     message: 'User Name không đúng định dạng.',
+                                // },
                             ]}
                         >
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            name="password"
+                            name="matKhau"
                             label="Password "
                             rules={[
                                 {
@@ -57,7 +72,7 @@ export default function RegisterForm() {
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            name="firstAndLastName"
+                            name="hoTen"
                             label="First and last name "
                             rules={[
                                 {
@@ -65,8 +80,8 @@ export default function RegisterForm() {
                                     message: 'Họ và tên không được bỏ trống.',
                                 },
                                 {
-                                    pattern:
-                                        '^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹsW|_]+$',
+                                    // pattern:
+                                    //     '^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹsW|_]+$',
                                     message: 'Họ và tên không đúng định dạng.',
                                 },
                             ]}
@@ -74,7 +89,7 @@ export default function RegisterForm() {
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            name={['user', 'email']}
+                            name="email"
                             label="Email"
                             rules={[
                                 {
@@ -90,7 +105,7 @@ export default function RegisterForm() {
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            name={['phoneNumber']}
+                            name="soDT"
                             label="Phone Number"
                             rules={[
                                 {

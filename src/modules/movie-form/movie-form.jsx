@@ -57,6 +57,7 @@ export default function MovieForm() {
         values.maNhom = GROUP_ID
 
         const formData = new FormData()
+
         for (const key in values) {
             formData.append(key, values[key])
         }
@@ -125,16 +126,16 @@ export default function MovieForm() {
                     {
                         validator: (rules, value) => {
                             if (isEmpty(value)) {
-                                return Promise.reject("Tên phim không được bỏ trống.")
+                                return Promise.reject('Tên phim không được bỏ trống.')
                             }
                             return Promise.resolve()
-                        }
+                        },
                     },
-                    {
-                        pattern:
-                            '^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+$',
-                        message: 'Tên phim không đúng định dạng. '
-                    }
+                    // {
+                    //     pattern:
+                    //         '^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹsW|_]+$',
+                    //     message: 'Tên phim không đúng định dạng. ',
+                    // },
                 ]}
             >
                 <Input />
@@ -142,14 +143,16 @@ export default function MovieForm() {
             <Form.Item
                 label="Trailer"
                 name="trailer"
-                rules={[{
-                    validator: (rules, value) => {
-                        if (isEmpty(value)) {
-                            return Promise.reject("Trailer không được bỏ trống.")
-                        }
-                        return Promise.resolve()
-                    }
-                },]}
+                rules={[
+                    {
+                        validator: (rules, value) => {
+                            if (isEmpty(value)) {
+                                return Promise.reject('Trailer không được bỏ trống.')
+                            }
+                            return Promise.resolve()
+                        },
+                    },
+                ]}
             >
                 <Input />
             </Form.Item>
@@ -160,11 +163,11 @@ export default function MovieForm() {
                     {
                         validator: (rules, value) => {
                             if (isEmpty(value)) {
-                                return Promise.reject("Mô tả không được bỏ trống.")
+                                return Promise.reject('Mô tả không được bỏ trống.')
                             }
                             return Promise.resolve()
-                        }
-                    }
+                        },
+                    },
                 ]}
             >
                 <Input />
@@ -172,14 +175,16 @@ export default function MovieForm() {
             <Form.Item
                 label="Showing Date"
                 name="ngayKhoiChieu"
-                rules={[{
-                    validator: (rules, value) => {
-                        if (isEmpty(value)) {
-                            return Promise.reject("Ngày khởi chiếu không được bỏ trống.")
-                        }
-                        return Promise.resolve()
-                    }
-                },]}
+                rules={[
+                    {
+                        validator: (rules, value) => {
+                            if (isEmpty(value)) {
+                                return Promise.reject('Ngày khởi chiếu không được bỏ trống.')
+                            }
+                            return Promise.resolve()
+                        },
+                    },
+                ]}
             >
                 <DatePicker />
             </Form.Item>
@@ -202,12 +207,11 @@ export default function MovieForm() {
             >
                 <InputNumber />
             </Form.Item>
-            <Form.Item label="File"
-            >
+            <Form.Item label="File">
                 <Input type="file" onChange={handleChangeImage} />
             </Form.Item>
             <Image src={image} />
-            <Form.Item shouldUpdate >
+            <Form.Item shouldUpdate>
                 {() => {
                     return (
                         <Button

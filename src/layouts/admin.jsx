@@ -7,7 +7,7 @@ import {
 } from '@ant-design/icons'
 import { Breadcrumb, Layout, Menu } from 'antd'
 import React, { useState } from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate, useParams } from 'react-router-dom'
 const { Header, Content, Footer, Sider } = Layout
 
 function getItem(label, key, icon, children) {
@@ -31,6 +31,8 @@ const items = [
 ]
 
 export default function AdminLayout() {
+    const params = useParams()
+    console.log(params)
     const [collapsed, setCollapsed] = useState(false)
 
     const navigate = useNavigate()
@@ -50,6 +52,7 @@ export default function AdminLayout() {
                     onClick={handleClick}
                     theme="dark"
                     defaultSelectedKeys={['/admin/movie-management']}
+                    defaultOpenKeys={['sub2']}
                     mode="inline"
                     items={items}
                 />
