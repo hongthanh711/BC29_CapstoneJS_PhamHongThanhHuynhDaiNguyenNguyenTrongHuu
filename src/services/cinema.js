@@ -15,6 +15,13 @@ const fetchCinemaListApi = () => {
     })
 }
 
+const fetchCinemaInfoApi = (maRap) => {
+    return request({
+        url: `/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maRap}`,
+        method: 'GET',
+    })
+}
+
 const scheduleCinemaApi = () => {
     return request({
         url: `/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap?maNhom=${GROUP_ID}`,
@@ -22,4 +29,18 @@ const scheduleCinemaApi = () => {
     })
 }
 
-export { fetchMovieShowTimesApi, fetchCinemaListApi, scheduleCinemaApi }
+const addScheduleMovieApi = (data) => {
+    return request({
+        url: `/QuanLyDatVe/TaoLichChieu`,
+        method: 'POST',
+        data,
+    })
+}
+
+export {
+    fetchMovieShowTimesApi,
+    fetchCinemaListApi,
+    scheduleCinemaApi,
+    fetchCinemaInfoApi,
+    addScheduleMovieApi,
+}

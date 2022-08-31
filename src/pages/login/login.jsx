@@ -56,6 +56,3 @@ export default function Login() {
         </form>
     )
 }
-
-// windows: Ctrl + P
-// macos: CMD + P

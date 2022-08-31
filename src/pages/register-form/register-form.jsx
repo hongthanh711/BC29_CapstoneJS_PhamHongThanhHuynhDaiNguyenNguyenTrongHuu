@@ -25,17 +25,13 @@ export default function RegisterForm(props) {
                 maLoaiNguoiDung: props.userInfoFormApi.maLoaiNguoiDung,
             }
             await updateUserInfoApi(dataUpdated)
-            console.log(dataUpdated)
-            console.log(props.userInfoFormApi)
         } else {
             const data = { ...values, maNhom: GROUP_ID }
-
-            console.log(data)
 
             await registerApi(data)
         }
 
-        notification.success('Successfully')
+        notification.success({ message: 'Successfully' })
     }
     return (
         <div className="container">
@@ -43,7 +39,9 @@ export default function RegisterForm(props) {
                 <div className="col-6">
                     <Form form={form} {...layout} onFinish={onFinish}>
                         <div className="form-group text-center">
-                            <h4 className="text-warning">Register Form</h4>
+                            <h4 className="text-warning">
+                                {props.userInfoFormApi ? 'Profile' : 'Register Form'}
+                            </h4>
                         </div>
                         <Form.Item
                             name="taiKhoan"
@@ -107,7 +105,7 @@ export default function RegisterForm(props) {
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            name="soDt"
+                            name="soDT"
                             label="Phone Number"
                             rules={[
                                 {

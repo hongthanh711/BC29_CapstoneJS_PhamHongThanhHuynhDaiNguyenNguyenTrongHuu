@@ -24,7 +24,7 @@ const fetchUserListApi = () => {
     })
 }
 
-const fetchBookingHistoryApi = () => {
+const fetchUserAccountApi = () => {
     return request({
         url: '/QuanLyNguoiDung/ThongTinTaiKhoan',
         method: 'POST',
@@ -46,11 +46,52 @@ const deleteUserApi = (taiKhoan) => {
     })
 }
 
+const fetchTypeUserApi = () => {
+    return request({
+        url: '/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung',
+        method: 'GET',
+    })
+}
+
+const addUserAdminApi = (data) => {
+    return request({
+        url: '/QuanLyNguoiDung/ThemNguoiDung',
+        method: 'POST',
+        data,
+    })
+}
+
+const fetchUserInfoAdminApi = (userId) => {
+    return request({
+        url: `/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${userId}`,
+        method: 'POST',
+    })
+}
+
+const updateUserInfoAdminApi = () => {
+    return request({
+        url: '/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
+        method: 'POST',
+    })
+}
+
+const searchUserApi = (keyWord) => {
+    return request({
+        url: `/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=${GROUP_ID}&tuKhoa=${keyWord}`,
+        method: 'GET',
+    })
+}
+
 export {
     loginApi,
     fetchUserListApi,
     registerApi,
-    fetchBookingHistoryApi,
+    fetchUserAccountApi,
     updateUserInfoApi,
     deleteUserApi,
+    fetchTypeUserApi,
+    addUserAdminApi,
+    fetchUserInfoAdminApi,
+    updateUserInfoAdminApi,
+    searchUserApi,
 }

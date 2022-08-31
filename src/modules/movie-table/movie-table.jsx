@@ -1,4 +1,4 @@
-import { Button, message, notification, Space, Table, Tag } from 'antd'
+import { Button, notification, Space, Table, Input } from 'antd'
 import { useAsync } from 'hooks/useAsync'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -6,10 +6,15 @@ import { fetchMovieListApi } from 'services/movie'
 import { formatDate } from 'utils/common'
 import { DeleteFilled, EditFilled, DiffFilled } from '@ant-design/icons'
 import { deleteMovieApi } from 'services/movie'
+import { useState } from 'react'
+
+const { Search } = Input
 
 export default function MovieTable() {
     const navigate = useNavigate()
-    const { state: data = [] } = useAsync({
+    const [keyWord, setKeyWord] = useState('')
+
+    let { state: data = [] } = useAsync({
         service: () => fetchMovieListApi(),
     })
 
@@ -18,11 +23,32 @@ export default function MovieTable() {
         notification.warning({ message: 'Xóa phim thành công' })
     }
 
+    const onChange = (value) => {
+        setKeyWord(value.target.value)
+    }
+
+    if (keyWord !== '') {
+        data = data.filter(
+            (ele) =>
+                (ele.biDanh.toLowerCase().trim().indexOf(keyWord.toLocaleLowerCase().trim()) !==
+                    -1) |
+                (ele.maPhim.toString().trim().indexOf(keyWord.toString().trim()) !== -1)
+        )
+    }
+
     const columns = [
+        {
+            title: 'Movie Id',
+            dataIndex: 'maPhim',
+            key: 'maPhim',
+        },
         {
             title: 'Movie Name',
             dataIndex: 'tenPhim',
             key: 'tenPhim',
+            render: (text) => {
+                return <b>{text}</b>
+            },
         },
         {
             title: 'Show Date',
@@ -51,7 +77,12 @@ export default function MovieTable() {
                     <button onClick={() => deleteMovie(record.maPhim)} className="btn btn-danger">
                         <DeleteFilled />
                     </button>
-                    <button className="btn btn-info">
+                    <button
+                        onClick={() =>
+                            navigate(`/admin/movie-management/showtime/${record.maPhim}`)
+                        }
+                        className="btn btn-info"
+                    >
                         <DiffFilled />
                     </button>
                 </Space>
@@ -61,6 +92,13 @@ export default function MovieTable() {
 
     return (
         <>
+            <div className="py-5">
+                <Search
+                    placeholder="Search by MovieId or MovieName"
+                    onChange={onChange}
+                    enterButton
+                />
+            </div>
             <div className="text-right mb-3">
                 <Button onClick={() => navigate('/admin/movie-management/create')} type="primary">
                     CREATE

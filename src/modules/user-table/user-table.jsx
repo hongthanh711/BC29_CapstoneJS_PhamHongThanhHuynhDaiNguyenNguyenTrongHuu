@@ -1,22 +1,37 @@
-import { Button, notification, Space, Table, Tag } from 'antd'
+import { Button, notification, Space, Table, Input } from 'antd'
 import { useAsync } from 'hooks/useAsync'
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { fetchUserListApi } from 'services/user'
 
 import { EditFilled, DeleteFilled } from '@ant-design/icons'
 import { deleteUserApi } from 'services/user'
+import { searchUserApi } from 'services/user'
+import { useEffect } from 'react'
+
+const { Search } = Input
 
 export default function UserTable() {
     const navigate = useNavigate()
+    const [keyWord, setKeyWord] = useState()
 
     const { state: data = [] } = useAsync({
         service: () => fetchUserListApi(),
     })
 
-    const deleteUser = (taiKhoan) => {
-        deleteUserApi(taiKhoan)
+    const deleteUser = async (taiKhoan) => {
+        await deleteUserApi(taiKhoan)
         notification.warning({ message: 'Successfuly' })
+    }
+
+    const { state: searchUser } = useAsync({
+        service: () => searchUserApi(keyWord),
+        dependencies: [keyWord],
+        condition: !!keyWord,
+    })
+
+    const onChange = (event) => {
+        setKeyWord(event.target.value)
     }
 
     let count = 0
@@ -61,7 +76,10 @@ export default function UserTable() {
             key: 'thaoTac',
             render: (_, record) => (
                 <Space size="middle">
-                    <button className="btn btn-success">
+                    <button
+                        onClick={() => navigate(`/admin/user-management/update/${record.taiKhoan}`)}
+                        className="btn btn-success"
+                    >
                         <EditFilled />
                     </button>
                     <button onClick={() => deleteUser(record.taiKhoan)} className="btn btn-danger">
@@ -73,12 +91,21 @@ export default function UserTable() {
     ]
     return (
         <>
+            <div className="py-5">
+                <Search placeholder="Search by username" onChange={onChange} enterButton />
+            </div>
+
             <div className="text-right mb-3">
                 <Button onClick={() => navigate('/admin/user-management/create')} type="primary">
                     CREATE USER
                 </Button>
             </div>
-            <Table rowKey="taiKhoan" columns={columns} dataSource={data} />
+
+            <Table
+                rowKey="taiKhoan"
+                columns={columns}
+                dataSource={searchUser ? searchUser : data}
+            />
         </>
     )
 }

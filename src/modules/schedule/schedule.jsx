@@ -76,7 +76,10 @@ export default function Schedule() {
                                     >
                                         {movie.lstLichChieuTheoPhim.map((time) => {
                                             return (
-                                                <div className="m-2 d-inline-block">
+                                                <div
+                                                    key={time.maLichChieu}
+                                                    className="m-2 d-inline-block"
+                                                >
                                                     <Button>
                                                         {formatDate(time.ngayChieuGioChieu)}
                                                     </Button>

@@ -1,29 +1,60 @@
-import { Button, Form, Input, InputNumber, Select } from 'antd'
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Button, Form, Input, InputNumber, notification, Select } from 'antd'
+import { GROUP_ID } from 'constants/common'
+import { useAsync } from 'hooks/useAsync'
+import React, { useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { updateUserInfoAdminApi } from 'services/user'
+import { fetchUserInfoAdminApi } from 'services/user'
+import { addUserAdminApi } from 'services/user'
+import { fetchTypeUserApi } from 'services/user'
 const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
 }
 
-export default function CreateUserForm() {
+export default function UserForm() {
     const navigate = useNavigate()
+    const params = useParams()
 
-    const onFinish = (values) => {
-        console.log(values)
+    const [form] = Form.useForm()
+
+    const { state: userInfo } = useAsync({
+        service: () => fetchUserInfoAdminApi(params.userId),
+        condition: !!params.userId,
+        dependencies: [params.userId],
+    })
+
+    useEffect(() => {
+        if (userInfo) {
+            form.setFieldsValue(userInfo)
+        }
+    }, [userInfo])
+
+    const { state: TypeUser } = useAsync({ service: () => fetchTypeUserApi() })
+
+    const onFinish = async (values) => {
+        const data = { ...values, maNhom: GROUP_ID }
+
+        console.log(data)
+        if (params.userId) {
+            await updateUserInfoAdminApi(data)
+        } else {
+            await addUserAdminApi(data)
+        }
+        notification.success({ message: 'Successfully' })
     }
-    return (
+    return TypeUser ? (
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-6">
                     {/* validateMessages={validateMessages}  name="nest-messages"*/}
-                    <Form {...layout} onFinish={onFinish}>
+                    <Form form={form} {...layout} onFinish={onFinish}>
                         <div className="form-group text-center">
-                            <h1>ADD USER</h1>
+                            {params.userId ? <h1>UPDATE USER</h1> : <h1>ADD USER</h1>}
                         </div>
                         <Form.Item
-                            name="userName"
-                            label="User Name "
+                            name="taiKhoan"
+                            label="Username "
                             rules={[
                                 {
                                     required: true,
@@ -38,7 +69,7 @@ export default function CreateUserForm() {
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            name="password"
+                            name="matKhau"
                             label="Password "
                             rules={[
                                 {
@@ -50,24 +81,24 @@ export default function CreateUserForm() {
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            name="firstAndLastName"
-                            label="First and last name "
+                            name="hoTen"
+                            label="Full name "
                             rules={[
                                 {
                                     required: true,
                                     message: 'Họ và tên không được bỏ trống.',
                                 },
-                                {
-                                    pattern:
-                                        '^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹsW|_]+$',
-                                    message: 'Họ và tên không đúng định dạng.',
-                                },
+                                // {
+                                //     pattern:
+                                //         '^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹsW|_]+$',
+                                //     message: 'Họ và tên không đúng định dạng.',
+                                // },
                             ]}
                         >
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            name={['user', 'email']}
+                            name="email"
                             label="Email"
                             rules={[
                                 {
@@ -83,7 +114,7 @@ export default function CreateUserForm() {
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            name={['phoneNumber']}
+                            name="soDt"
                             label="Phone Number"
                             rules={[
                                 {
@@ -101,17 +132,25 @@ export default function CreateUserForm() {
                             <Input />
                         </Form.Item>
 
-                        <Form.Item label="Select">
+                        <Form.Item name="maLoaiNguoiDung" label="Select">
                             <Select>
-                                <Select.Option value="KhachHang">Khách hàng</Select.Option>
-                                <Select.Option value="QuanTri">Quản trị</Select.Option>
+                                {TypeUser.map((ele) => {
+                                    return (
+                                        <Select.Option
+                                            key={ele.maLoaiNguoiDung}
+                                            value={ele.maLoaiNguoiDung}
+                                        >
+                                            {ele.tenLoai}
+                                        </Select.Option>
+                                    )
+                                })}
                             </Select>
                         </Form.Item>
 
                         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
                             <div className="text-right">
                                 <Button type="primary" htmlType="submit" className="mr-2">
-                                    Add
+                                    {params.userId ? 'Update' : 'Add'}
                                 </Button>
                             </div>
                         </Form.Item>
@@ -122,5 +161,7 @@ export default function CreateUserForm() {
                 </div>
             </div>
         </div>
+    ) : (
+        'loading'
     )
 }

@@ -3,14 +3,14 @@ import BookingHistory from 'modules/booking-history/booking-history'
 import RegisterForm from 'pages/register-form/register-form'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { fetchBookingHistoryApi } from 'services/user'
+import { fetchUserAccountApi } from 'services/user'
 import './index.scss'
 
 export default function UserInfo() {
     const userState = useSelector((state) => state.userReducer)
 
     const { state: userInfoFormApi } = useAsync({
-        service: () => fetchBookingHistoryApi(),
+        service: () => fetchUserAccountApi(),
         condition: userState.userInfo,
     })
 
