@@ -1,9 +1,18 @@
+<<<<<<< HEAD
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { fetchMovieShowTimesApi } from 'services/cinema'
+
+import moment from 'moment'
+import { formatDate } from 'utils/common'
+=======
 import "./index.scss";
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchMovieShowTimesApi } from '../../services/cinema';
 
 import { formatDate } from '../../utils/common';
+>>>>>>> fea4c83103aedcb4839583027a90ca5d0337f118
 
 export default function ShowTimes() {
     const params = useParams();

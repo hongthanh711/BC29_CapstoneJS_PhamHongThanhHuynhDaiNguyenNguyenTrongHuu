@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Chair from "../../modules/chair/chair";
-import { bookingTicketApi, fetchRoomListApi } from "../../services/booking";
+
+import Chair from "modules/chair/chair";
+import { bookingTicketApi, fetchRoomListApi } from "services/booking";
 import './index.scss';
 
 export default function Booking() {

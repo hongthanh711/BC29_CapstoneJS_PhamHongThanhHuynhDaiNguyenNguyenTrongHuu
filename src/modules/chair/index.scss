@@ -1,26 +1,19 @@
-@import '../../styles/variable';
-@import '../../styles/mixin';
+@import 'styles/mixin';
+@import 'styles/variable';
 
-.seat {
-    background-color: pink;
-    border: solid 2px rgba(0, 0, 0, 0.105);
-    border-radius: 20px 20px 5px 5px;
-    width: 3em;
-    height: 2em;
-    padding: .3em;
-    margin: .4em;
-    text-align: center;
+.ghe {
+    width: 35px;
+    height: 35px;
+    background: #ccc;
+    margin-right: 3px;
+    margin-bottom: 3px;
 
-    &:focus {
-        outline: 0;
+    &.gheVip {
+        background-color: $pink;
     }
 
-    &.Vip {
-        background-color: violet;
-    }
-
-    &.selecting {
-        background-color: rgba(78, 156, 78, 0.655);
+    &.dangDat {
+        background-color: yellow;
     }
 
     &.daDat {
