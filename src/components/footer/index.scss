@@ -1,0 +1,8 @@
+@import '../../styles/variable';
+@import '../../styles/mixin';
+
+.footer {
+    .brand__footer {
+        @include img(50px, 50px)
+    }
+}
