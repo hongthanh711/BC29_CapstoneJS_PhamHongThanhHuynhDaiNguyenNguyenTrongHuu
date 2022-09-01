@@ -1,7 +1,8 @@
 // color
-$pink: #aa017e;
-$pink-1: #b61984;
-$pink-2: #dcd1f0;
+$theme-1: #0561a9;
+$theme-2: #7359c5;
+$theme-3: #d819a5;
+
 $black: #000;
 $black-1: rgba(0, 0, 0, 0.8);
 $black-2: rgba(0, 0, 0, 0.2);
@@ -11,42 +12,40 @@ $light-2: rgba(255, 255, 255, 0.4);
 
 // padding
 
-$pd-1: 0.4rem;
-$pd-2: 0.8rem;
-$pd-3: 1.2rem;
-$pd-4: 1.6rem;
-$pd-5: 2rem;
-$pd-6: 3rem;
-$pd-7: 4rem;
-$pd-8: 5rem;
-$pd-9: 6rem;
-$pd-10: 8rem;
+$pd-1: 0.4em;
+$pd-2: 0.8em;
+$pd-3: 1.2em;
+$pd-4: 1.6em;
+$pd-5: 2em;
+$pd-6: 3em;
+$pd-7: 4em;
+$pd-8: 5em;
+$pd-9: 6em;
+$pd-10: 8em;
 
 // margin
 
-$m-0: 0rem;
-$m-1: 0.4rem;
-$m-2: 0.8rem;
-$m-3: 1.2rem;
-$m-4: 1.6rem;
-$m-5: 2rem;
-$m-6: 2.4rem;
-$m-7: 2.8rem;
-$m-8: 3.2rem;
-$m-9: 4rem;
-$m-10: 6rem;
+$m-0: 0em;
+$m-1: 0.4em;
+$m-2: 0.8em;
+$m-3: 1.2em;
+$m-4: 1.6em;
+$m-5: 2em;
+$m-6: 2.4em;
+$m-7: 2.8em;
+$m-8: 3.2em;
+$m-9: 4em;
+$m-10: 6em;
 
 // font size
 
-$fs-0: initial;
-$fs-1: 1.3rem;
-$fs-2: 1.4rem;
+$fs-1: 1rem;
+$fs-2: 1.3rem;
 $fs-3: 1.5rem;
-$fs-4: 1.6rem;
-$fs-5: 1.8rem;
-$fs-6: 2.4rem;
-$fs-7: 4rem;
-$fs-xs-7: 4.8rem;
+$fs-4: 1.8rem;
+$fs-5: 2rem;
+$fs-6: 2.5em;
+$fs-7: 3rem;
 $fs-8: 6rem;
 
 // font weight
@@ -87,7 +86,7 @@ $transit-1: all 300ms ease;
 
 //anime
 $aniName-1: fadeIn;
-$delay-1: 0.5s;
+$delay-1: .5s;
 $delay-2: 1s;
 $delay-3: 1.5s;
 $delay-4: 2s;

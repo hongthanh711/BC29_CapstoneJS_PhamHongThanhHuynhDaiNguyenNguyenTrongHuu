@@ -1,3 +1,54 @@
-.navbar-brand {
-  color: red !important;
+@import '../../styles/variable';
+@import '../../styles/mixin';
+
+.header {
+  position: inherit;
+  z-index: 4;
+  opacity: 1;
+
+  .navbar-brand img {
+    cursor: pointer;
+  }
+
+  .nav__header {
+    @include textGradient($fs-3);
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      @include bgGradient(right);
+      opacity: 0;
+      // transform: translateX(10px);
+      transition: all .5s ease-in-out;
+      position: absolute;
+      bottom: 0%;
+      left: 0;
+    }
+
+    &.active::after {
+      opacity: 1;
+      width: 100%;
+    }
+
+    &:hover::after {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
+  .btn__display {
+    // background-image: url('../../../public/images/user-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 1em;
+  }
 }

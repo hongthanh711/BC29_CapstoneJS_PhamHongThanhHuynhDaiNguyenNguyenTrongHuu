@@ -7,14 +7,14 @@ export default function Chair(props) {
   const [isSelected, setIsSelected] = useState(false);
 
   const populateClass = () => {
-    let defaultClass = "ghe";
+    let defaultClass = 'seat';
 
     if (props.item.loaiGhe === LoaiGhe.Vip) {
-      defaultClass += " gheVip";
+      defaultClass += " Vip";
     }
 
     if (isSelected) {
-      defaultClass += " dangDat";
+      defaultClass += " selecting";
     }
 
     if (props.item.daDat) {
@@ -23,17 +23,16 @@ export default function Chair(props) {
 
     return defaultClass;
   };
-
   return (
     <button
+      key={props.item.tenGhe}
       disabled={props.item.daDat}
       onClick={() => {
         setIsSelected(!isSelected);
         props.handleSelect(props.item);
       }}
-      className={populateClass()}
-    >
+      className={populateClass()}>
       {props.item.tenGhe}
-    </button>
+    </button >
   );
 }

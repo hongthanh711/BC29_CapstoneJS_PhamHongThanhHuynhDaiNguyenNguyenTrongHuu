@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
 import Chair from "modules/chair/chair";
 import { bookingTicketApi, fetchRoomListApi } from "services/booking";
+import './index.scss';
 
 export default function Booking() {
   const [danhSachGhe, setDanhSachGhe] = useState([]);
@@ -33,6 +35,23 @@ export default function Booking() {
     setDanhSachGhe(data);
   };
 
+  const classifySeat = (type) => {
+    return danhSachGhe.map((ele, idx) => {
+      if (ele.loaiGhe === type) {
+        return (<React.Fragment
+          key={ele.tenGhe}
+        >
+          <span
+            className='mr-1 text-justify'
+          >
+            {ele.tenGhe}
+          </span>
+          {(idx + 1) % 2 === 0 && <br />}
+        </React.Fragment>);
+      }
+    });
+  };
+
   const handleBookingTicket = async () => {
     const danhSachVe = danhSachGhe.map((ele) => {
       return {
@@ -53,47 +72,73 @@ export default function Booking() {
   };
 
   return roomList ? (
-    <div className='row w-75 mx-auto my-5'>
-      <div className='col-8'>
+    <div className="row mx-auto my-5">
+
+      <div className="col-lg-8 seatList">
         {roomList.danhSachGhe.map((ele, idx) => {
           return (
-            // <></>
-            <React.Fragment key={ele.tenGhe}>
-              <Chair handleSelect={handleSelect} item={ele} />
+            < React.Fragment
+              key={ele.tenGhe}>
+              <Chair
+                handleSelect={handleSelect}
+                item={ele} />
               {(idx + 1) % 16 === 0 && <br />}
             </React.Fragment>
           );
         })}
       </div>
-      <div className='col-4'>
-        <img
-          className='img-fluid'
-          src={roomList.thongTinPhim.hinhAnh}
-          alt='image'
-        />
-        <h4>Tên phim: {roomList.thongTinPhim.tenPhim}</h4>
-        <h5>Mô tả: {roomList.thongTinPhim.moTa}</h5>
-        <p>
-          Ghế:
-          {danhSachGhe.map((ele) => (
-            <span key={ele.tenGhe} className='badge badge-success'>
-              {ele.tenGhe}
-            </span>
-          ))}
-        </p>
-        <p>
-          Tổng tiền:
-          {danhSachGhe
-            .reduce((previousValue, currentValue) => {
-              previousValue += currentValue.giaVe;
+      <div className="col-lg-4">
+        <div className="container">
+          <h2>{roomList.thongTinPhim.tenPhim}</h2>
+          <img
+            className='img-fluid pb-5'
+            src={roomList.thongTinPhim.hinhAnh}
+            alt="hinhPhim" />
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  className='text-justify'>Standard</td>
+                <td>
+                  {classifySeat("Thuong")}
+                </td>
+                <td>
+                  200
+                </td>
+                <td className="text-danger">
+                  {danhSachGhe.reduce((previousValue, currentValue) => {
+                    previousValue += currentValue.giaVe;
 
-              return previousValue;
-            }, 0)
-            .toLocaleString()}
-        </p>
-        <button onClick={handleBookingTicket} className='btn btn-info'>
-          ĐẶT VÉ
-        </button>
+                    return previousValue;
+                  }, 0).toLocaleString()}
+                </td>
+              </tr>
+              <tr>
+                <td>VIP</td>
+                <td>
+                  {classifySeat("Vip")}
+                </td>
+                <td>200</td>
+                <td>
+                  <button
+                    onClick={handleBookingTicket}
+                    className="btn btn-success">
+                    Book
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       </div>
     </div>
   ) : (
