@@ -21,5 +21,5 @@ export const useAsync = ({ dependencies = [], service, condition = true }) => {
         setState(result.data.content)
     }
 
-    return { state }
+    return { state, refetch: fetchData }
 }

@@ -61,7 +61,7 @@ export default function Schedule() {
                             {cinema.danhSachPhim.map((movie) => {
                                 return (
                                     <TabPane
-                                        style={{ height: 1000 }}
+                                        style={{ height: 1000, overflow: 'scroll' }}
                                         tab={
                                             <div style={{ width: '200px' }}>
                                                 <h4>{movie.tenPhim}</h4>

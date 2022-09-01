@@ -15,13 +15,14 @@ export default function UserTable() {
     const navigate = useNavigate()
     const [keyWord, setKeyWord] = useState()
 
-    const { state: data = [] } = useAsync({
+    const { state: data = [], refetch } = useAsync({
         service: () => fetchUserListApi(),
     })
 
     const deleteUser = async (taiKhoan) => {
         await deleteUserApi(taiKhoan)
-        notification.warning({ message: 'Successfuly' })
+        notification.success({ message: 'Successfuly' })
+        refetch()
     }
 
     const { state: searchUser } = useAsync({

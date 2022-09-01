@@ -68,10 +68,11 @@ const fetchUserInfoAdminApi = (userId) => {
     })
 }
 
-const updateUserInfoAdminApi = () => {
+const updateUserInfoAdminApi = (data) => {
     return request({
         url: '/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
         method: 'POST',
+        data,
     })
 }
 

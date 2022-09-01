@@ -14,13 +14,14 @@ export default function MovieTable() {
     const navigate = useNavigate()
     const [keyWord, setKeyWord] = useState('')
 
-    let { state: data = [] } = useAsync({
+    let { state: data = [], refetch } = useAsync({
         service: () => fetchMovieListApi(),
     })
 
-    const deleteMovie = (movieId) => {
-        deleteMovieApi(movieId)
-        notification.warning({ message: 'Xóa phim thành công' })
+    const deleteMovie = async (movieId) => {
+        await deleteMovieApi(movieId)
+        notification.success({ message: 'Xóa phim thành công' })
+        refetch()
     }
 
     const onChange = (value) => {
