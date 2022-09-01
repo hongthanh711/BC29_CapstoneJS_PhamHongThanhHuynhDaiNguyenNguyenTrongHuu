@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { fetchMovieShowTimesApi } from '../../services/cinema'
+import { fetchMovieShowTimesApi } from 'services/cinema'
 
 import moment from 'moment'
-import { formatDate } from '../../utils/common'
+import { formatDate } from 'utils/common'
 
 export default function ShowTimes() {
     const params = useParams()

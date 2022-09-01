@@ -1,5 +1,5 @@
-@import '../../styles/mixin';
-@import '../../styles/variable';
+@import 'styles/mixin';
+@import 'styles/variable';
 
 .ghe {
     width: 35px;
@@ -11,9 +11,11 @@
     &.gheVip {
         background-color: $pink;
     }
+
     &.dangDat {
         background-color: yellow;
     }
+
     &.daDat {
         cursor: not-allowed;
         background-color: gray;

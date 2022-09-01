@@ -2,13 +2,11 @@ import { Button } from 'antd'
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { LoadingContext } from '../../contexts/loading.context'
-import { useAsync } from '../../hooks/useAsync'
-import { fetchMovieListApi } from '../../services/movie'
+import { useAsync } from 'hooks/useAsync'
+import { fetchMovieListApi } from 'services/movie'
 
 export default function MovieList() {
     const navigate = useNavigate()
-    // const [movieList, setMovieList] = useState([]);
-    // const [_, setLoadingState] = useContext(LoadingContext);
 
     const { state: movieList = [] } = useAsync({
         dependencies: [],

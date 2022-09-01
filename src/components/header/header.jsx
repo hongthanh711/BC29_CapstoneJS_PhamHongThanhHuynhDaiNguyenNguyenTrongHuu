@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { USER_INFO_KEY } from '../../constants/common'
-import { setUserInfoAction } from '../../store/actions/user.action'
+import { USER_INFO_KEY } from 'constants/common'
+import { setUserInfoAction } from 'store/actions/user.action'
 
 import './index.scss'
 
