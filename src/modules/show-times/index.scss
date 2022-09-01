@@ -1,0 +1,16 @@
+@import '../../styles/variable';
+@import '../../styles/mixin';
+
+
+.cinema__nav {
+    text-transform: uppercase;
+}
+
+.nav-link.active {
+    background-color: transparent !important;
+    @include bgGradient(right);
+}
+
+.cinema__logo {
+    @include img(10rem, 10rem)
+}

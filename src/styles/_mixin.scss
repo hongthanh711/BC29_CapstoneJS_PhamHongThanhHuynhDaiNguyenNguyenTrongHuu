@@ -1,4 +1,3 @@
-
 @mixin textStyle($fontSize, $fontWeight, $lineHeight, $color) {
     font-size: $fontSize;
     font-weight: $fontWeight;
@@ -47,4 +46,15 @@
     animation-iteration-count: 1;
     animation-direction: normal;
     animation-play-state: running;
+}
+
+@mixin textGradient($fs) {
+    font-size: $fs;
+    background: -webkit-linear-gradient($theme-1, $theme-2, $theme-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin bgGradient($direction) {
+    background-image: linear-gradient(to $direction, #d819a53b, #0562a938, #7259c522);
 }

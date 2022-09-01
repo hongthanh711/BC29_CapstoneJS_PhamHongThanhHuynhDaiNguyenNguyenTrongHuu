@@ -1,73 +1,85 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, useNavigate } from 'react-router-dom'
-import { USER_INFO_KEY } from '../../constants/common'
-import { setUserInfoAction } from '../../store/actions/user.action'
-
-import './index.scss'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { USER_INFO_KEY } from '../../constants/common';
+import { setUserInfoAction } from '../../store/actions/user.action';
+import { IconLogo } from "../icon";
+import './index.scss';
 
 export default function Header() {
-    const dispatch = useDispatch()
-    const userState = useSelector((state) => state.userReducer)
-    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const userState = useSelector((state) => state.userReducer);
+    const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.removeItem(USER_INFO_KEY)
-        dispatch(setUserInfoAction(null))
-        navigate('/')
-    }
+        localStorage.removeItem(USER_INFO_KEY);
+        dispatch(setUserInfoAction(null));
+        navigate('/');
+    };
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-light bg-light">
-            <a className="navbar-brand" href="#">
-                Movie
-            </a>
-            <button
-                className="navbar-toggler d-lg-none"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapsibleNavId"
-                aria-controls="collapsibleNavId"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="collapsibleNavId">
-                <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li className="nav-item active">
-                        <NavLink className="nav-link" to="/">
-                            Home
-                        </NavLink>
-                    </li>
-                </ul>
-                <div className="ml-auto">
+        < header className="pb-5 header" >
+            <nav className="navbar navbar-expand-md">
+                {/* Brand */}
+                <a className="navbar-brand"
+                    onClick={() => navigate('/')}
+                >
+                    <IconLogo />
+                </a>
+                {/* Toggler/collapsibe Button */}
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span className="navbar-toggler-icon" />
+                </button>
+                {/* Navbar links */}
+                <div className="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul className="navbar-nav ml-auto">
+                        <li className="nav-item mr-4 nav__li">
+                            <a className="nav-link nav__header active" onClick={() => navigate('/')}>Home</a>
+                        </li>
+                        <li className="nav-item mr-4 nav__li">
+                            <a className="nav-link nav__header" target="_blank" href="https://www.facebook.com/hthanh711">Contact</a>
+                        </li>
+                        <li className="nav-item mr-4 nav__li">
+                            <a className="nav-link nav__header" target="_blank" href="https://kenh14.vn/">News</a>
+                        </li>
+                        <li className="nav-item mr-4 nav__li">
+                            <a className="nav-link nav__header" target="_blank" href="https://www.vietnamworks.com/it-software-jobs-i35-en?utm_source=SEM&utm_medium=MA&utm_campaign=SEM_IT&utm_content=all&gclid=CjwKCAjwx7GYBhB7EiwA0d8oexN0aUa5UCZcJDRFy5VU_4-w8KJuHq-vgb5aOO6vZODq4lTzrGB4cxoCtGgQAvD_BwE">Works</a>
+                        </li>
+                    </ul>
+                </div>
+                <form className="form-inline" action="/action_page.php">
+                    <input className="form-control mr-sm-2" type="text" placeholder="Search" />
+                    <button className="btn btn-success" type="submit">Search</button>
+                </form>
+            </nav>
+            {/* Login and Logout buttons  */}
+            < div className="m-auto" >
+                <div className="d-flex justify-content-center btn__display">
                     {!userState.userInfo ? (
                         <>
                             <button
-                                className="btn btn-outline-info my-2 my-sm-0 mr-2"
-                                type="sumit"
-                                onClick={() => navigate('/register-form')}
-                            >
-                                Register
+                                onClick={() => navigate('/login')}
+                                className="btn btn-success m-0">Login
                             </button>
                             <button
-                                onClick={() => navigate('/login')}
-                                className="btn btn-outline-success my-2 my-sm-0"
-                            >
-                                Login
+                                onClick={() => navigate('/register-form')}
+                                className="btn btn-danger m-0"
+                                type="sumit"
+                            >Register
+                            </button>
+
+                        </>) : (
+                        <><h1 className="m-0">Hello Bà {userState.userInfo.hoTen}</h1>
+                            <button
+                                onClick={handleLogout}
+                                className="btn btn-danger m-0">Logout
                             </button>
                         </>
-                    ) : (
-                        <>
-                            <span>Xin chào {userState.userInfo.hoTen} </span>
-                            <button onClick={handleLogout} className="btn btn-info">
-                                ĐĂNG XUẤT
-                            </button>
-                        </>
-                    )}
+                    )
+                    }
                 </div>
-            </div>
-        </nav>
-    )
+            </div >
+        </header >
+
+    );
 }
