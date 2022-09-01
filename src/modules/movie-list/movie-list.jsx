@@ -1,47 +1,58 @@
-import { Button } from 'antd'
-import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { LoadingContext } from '../../contexts/loading.context'
-import { useAsync } from '../../hooks/useAsync'
-import { fetchMovieListApi } from '../../services/movie'
-
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAsync } from '../../hooks/useAsync';
+import { fetchMovieListApi } from '../../services/movie';
+import './index.scss';
 export default function MovieList() {
-    const navigate = useNavigate()
-    // const [movieList, setMovieList] = useState([]);
-    // const [_, setLoadingState] = useContext(LoadingContext);
-
+    const navigate = useNavigate();
     const { state: movieList = [] } = useAsync({
         dependencies: [],
         service: () => fetchMovieListApi(),
-    })
+    });
 
     const renderMovieList = () => {
-        return movieList.map((ele) => {
+        return movieList.map(ele => {
             return (
-                <div className="col-3" key={ele.maPhim}>
-                    <div className="card movie-card" style={{ marginBottom: 20, height: 500 }}>
-                        <img
-                            style={{ height: 350, objectFit: 'cover' }}
-                            className="card-img-top"
-                            src={ele.hinhAnh}
-                            alt="movie"
-                        />
-                        <div className="card-body">
-                            <h5 className="card-title">{ele.tenPhim}</h5>
-                            <Button
-                                loading={false}
-                                size="large"
-                                type="danger"
+                <div
+                    className="col-lg-3 col-md-4 col-sm-6 col-xs-12 "
+                    key={ele.maPhim}
+                >
+                    <div className="item__wrapper">
+                        {/* item */}
+                        <div className="thumb__item">
+                            <img
+                                className="my-2 thumb-img "
+                                src={ele.hinhAnh}
+                                alt="movie" />
+                        </div>
+                        {/* overlay  */}
+                        <div className="thumb__overlay text-center" >
+                            <h6 className="thumb__title text-danger">
+                                {ele.tenPhim}
+                            </h6>
+
+                            <p className="thumb__describe">
+                                {ele.moTa}
+                            </p>
+                            <button
                                 onClick={() => navigate(`/movie/${ele.maPhim}`)}
-                            >
-                                XEM CHI TIẾT
-                            </Button>
+                                className="btn btn-success">
+                                See More
+                            </button>
                         </div>
                     </div>
-                </div>
-            )
-        })
-    }
+                </div >
+            );
+        });
+    };
 
-    return <div className="row mt-3 mx-auto w-75">{renderMovieList()}</div>
+    return (
+        <section className="py-5 thumbnails">
+            <div className="container">
+                <div className="row">
+                    {renderMovieList()}
+                </div>
+            </div>
+        </section>
+    );
 }
