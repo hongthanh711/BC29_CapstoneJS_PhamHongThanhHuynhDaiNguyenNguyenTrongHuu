@@ -31,8 +31,6 @@ const items = [
 ]
 
 export default function AdminLayout() {
-    const params = useParams()
-    console.log(params)
     const [collapsed, setCollapsed] = useState(false)
 
     const navigate = useNavigate()

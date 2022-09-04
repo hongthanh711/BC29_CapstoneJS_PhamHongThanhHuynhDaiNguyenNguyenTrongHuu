@@ -13,6 +13,7 @@ import {
 } from 'antd'
 import { useAsync } from 'hooks/useAsync'
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { addScheduleMovieApi } from 'services/cinema'
 import { fetchCinemaInfoApi } from 'services/cinema'
@@ -27,7 +28,17 @@ export default function CreateShowtime() {
         setComponentSize(size)
     }
 
-    const { state: cinemaList } = useAsync({ service: () => fetchCinemaListApi() })
+    const { state: cinemaList } = useAsync({
+        service: () => fetchCinemaListApi(),
+    })
+
+    useEffect(() => {
+        setCinemaId(cinemaList?.[0].maHeThongRap)
+    }, [cinemaList])
+
+    useEffect(() => {
+        setCinemaId(cinemaList?.[0].maHeThongRap)
+    }, [cinemaList])
 
     const renderCinemas = () => {
         return cinemaList?.map((ele) => {
@@ -46,6 +57,7 @@ export default function CreateShowtime() {
     const { state: theater } = useAsync({
         service: () => fetchCinemaInfoApi(cinemaId),
         dependencies: [cinemaId],
+        condition: !!cinemaId,
     })
 
     const renderTheater = () => {
@@ -59,12 +71,11 @@ export default function CreateShowtime() {
     }
 
     const onFinish = async (value) => {
-        value.ngayChieuGioChieu = value.ngayChieuGioChieu.format('DD/MM/YYYY')
+        value.ngayChieuGioChieu = value.ngayChieuGioChieu.format('DD/MM/YYYY hh:mm:ss')
         const data = {
             ...value,
             maPhim: params.movieId,
         }
-        console.log(data)
 
         await addScheduleMovieApi(data)
         notification.success({ message: 'Successfully' })
@@ -100,9 +111,11 @@ export default function CreateShowtime() {
                         <Form.Item name="maRap" label="Theater cluster">
                             <Select>{renderTheater()}</Select>
                         </Form.Item>
-                        <Form.Item name="ngayChieuGioChieu" label="Date">
-                            <DatePicker />
+
+                        <Form.Item name="ngayChieuGioChieu" label="DatePicker[showTime]">
+                            <DatePicker showTime />
                         </Form.Item>
+
                         <Form.Item name="giaVe" label="Price">
                             <Input />
                         </Form.Item>

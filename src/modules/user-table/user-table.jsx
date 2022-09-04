@@ -13,25 +13,26 @@ const { Search } = Input
 
 export default function UserTable() {
     const navigate = useNavigate()
-    const [keyWord, setKeyWord] = useState()
+    const [keyword, setKeyword] = useState('')
 
-    const { state: data = [] } = useAsync({
+    const { state: data = [], refetch } = useAsync({
         service: () => fetchUserListApi(),
     })
 
     const deleteUser = async (taiKhoan) => {
         await deleteUserApi(taiKhoan)
-        notification.warning({ message: 'Successfuly' })
+        notification.success({ message: 'Successfuly' })
+        refetch()
     }
 
     const { state: searchUser } = useAsync({
-        service: () => searchUserApi(keyWord),
-        dependencies: [keyWord],
-        condition: !!keyWord,
+        service: () => searchUserApi(keyword),
+        dependencies: [keyword],
+        // condition: !!keyWord,
     })
 
     const onChange = (event) => {
-        setKeyWord(event.target.value)
+        setKeyword(event.target.value)
     }
 
     let count = 0
@@ -101,11 +102,7 @@ export default function UserTable() {
                 </Button>
             </div>
 
-            <Table
-                rowKey="taiKhoan"
-                columns={columns}
-                dataSource={searchUser ? searchUser : data}
-            />
+            <Table rowKey="taiKhoan" columns={columns} dataSource={searchUser} />
         </>
     )
 }
