@@ -1,13 +1,5 @@
-import ProfileGuard from 'guards/profile.guard'
-import CreateShowtime from 'pages/create-showtime/create-showtime'
-import CreateUser from 'pages/create-user/create-user'
-import RegisterForm from 'pages/register-form/register-form'
-import UpdateMovie from 'pages/update-movie/update-movie'
-import UpdateUser from 'pages/update-user/update-user'
-import UserInfo from 'pages/user-info/user-info'
-import UserManagement from 'pages/user-management/user-management'
 import React, { lazy } from 'react'
-import { Navigate, useNavigate, useRoutes } from 'react-router-dom'
+import { Navigate, useRoutes } from 'react-router-dom'
 
 const AdminGuard = lazy(() => import('../guards/admin.guard'))
 const AuthGuard = lazy(() => import('../guards/auth.guard'))
@@ -20,6 +12,14 @@ const HomeLayout = lazy(() => import('../layouts/home'))
 const Home = lazy(() => import('pages/home/home'))
 const MovieDetail = lazy(() => import('pages/movie-detail/movie-detail'))
 const CreateMovie = lazy(() => import('pages/create-movie/create-movie'))
+const ProfileGuard = lazy(() => import('guards/profile.guard'))
+const CreateShowtime = lazy(() => import('pages/create-showtime/create-showtime'))
+const CreateUser = lazy(() => import('pages/create-user/create-user'))
+const RegisterForm = lazy(() => import('pages/register-form/register-form'))
+const UpdateMovie = lazy(() => import('pages/update-movie/update-movie'))
+const UpdateUser = lazy(() => import('pages/update-user/update-user'))
+const UserInfo = lazy(() => import('pages/user-info/user-info'))
+const UserManagement = lazy(() => import('pages/user-management/user-management'))
 
 export default function Router() {
     const routing = useRoutes([
