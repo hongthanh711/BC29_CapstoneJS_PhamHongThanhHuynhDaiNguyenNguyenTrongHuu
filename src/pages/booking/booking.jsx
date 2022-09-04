@@ -5,6 +5,7 @@ import Chair from '../../modules/chair/chair'
 import { bookingTicketApi, fetchRoomListApi } from '../../services/booking'
 import './index.scss'
 
+
 export default function Booking() {
     const [danhSachGhe, setDanhSachGhe] = useState([])
     const [roomList, setRoomList] = useState()

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMovieDetailApi } from '../../services/movie';
-import { formatDate } from '../../utils/common';
+
+import { fetchMovieDetailApi } from 'services/movie';
+import { formatDate } from 'utils/common';
 import Swal from 'sweetalert2';
 
 export default function Detail() {

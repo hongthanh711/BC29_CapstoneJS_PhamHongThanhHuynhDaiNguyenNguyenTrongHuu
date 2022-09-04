@@ -1,6 +1,7 @@
-import { notification } from 'antd'
-import axios from 'axios'
-import { BASE_URL, TOKEN_CYBERSOFT, USER_INFO_KEY } from '../constants/common'
+
+import { notification } from "antd";
+import axios from "axios";
+import { BASE_URL, TOKEN_CYBERSOFT, USER_INFO_KEY } from "constants/common";
 
 export const request = axios.create({
     baseURL: BASE_URL,
