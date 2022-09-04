@@ -1,0 +1,632 @@
+[
+    {
+      "maLichChieu": 16099,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-01T10:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16100,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-01T12:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16101,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-01T14:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16102,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-01T16:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16103,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-01T18:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16104,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-01T20:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16105,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-02T10:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16106,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-02T12:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16107,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-02T14:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16108,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-02T16:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16109,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-02T18:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16110,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-02T20:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16111,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-03T10:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16112,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-03T12:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16113,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-03T14:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16114,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-03T16:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16115,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-03T18:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16116,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-03T20:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16117,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-04T10:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16118,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-04T12:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16119,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-04T14:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16120,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-04T16:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16121,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-04T18:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16122,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-04T20:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16123,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-05T10:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16124,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-05T12:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16125,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-05T14:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16126,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-05T16:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16127,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-05T18:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16128,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-05T20:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16129,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-06T10:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16130,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-06T12:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16131,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-06T14:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16132,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-06T16:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16133,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-06T18:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16134,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-06T20:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16135,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-07T10:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16136,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-07T12:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16137,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-07T14:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16138,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-07T16:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16139,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-07T18:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16140,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-07T20:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16141,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-08T10:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16142,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-08T12:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16143,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-08T14:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16144,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-08T16:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16145,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-08T18:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16146,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-08T20:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16147,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-09T10:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16148,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-09T12:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16149,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-09T14:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16150,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-09T16:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16151,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-09T18:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 16152,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-01-09T20:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 40272,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2020-03-20T02:12:03",
+      "giaVe": 80000
+    },
+    {
+      "maLichChieu": 40277,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2019-05-24T09:30:00",
+      "giaVe": 80000
+    },
+    {
+      "maLichChieu": 40280,
+      "maRap": "469",
+      "tenRap": "Rạp 9",
+      "ngayChieuGioChieu": "2020-03-20T05:00:10",
+      "giaVe": 78900
+    },
+    {
+      "maLichChieu": 40285,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2020-03-25T06:27:47",
+      "giaVe": 79800
+    },
+    {
+      "maLichChieu": 40498,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2020-08-31T09:30:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 40503,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2020-09-17T00:00:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 40616,
+      "maRap": "462",
+      "tenRap": "Rạp 2",
+      "ngayChieuGioChieu": "2020-11-05T00:41:00",
+      "giaVe": 120000
+    },
+    {
+      "maLichChieu": 40617,
+      "maRap": "464",
+      "tenRap": "Rạp 4",
+      "ngayChieuGioChieu": "2020-11-05T00:41:00",
+      "giaVe": 120000
+    },
+    {
+      "maLichChieu": 40853,
+      "maRap": "464",
+      "tenRap": "Rạp 4",
+      "ngayChieuGioChieu": "2020-12-19T03:15:00",
+      "giaVe": 120000
+    },
+    {
+      "maLichChieu": 40854,
+      "maRap": "464",
+      "tenRap": "Rạp 4",
+      "ngayChieuGioChieu": "2020-12-20T03:20:00",
+      "giaVe": 80000
+    },
+    {
+      "maLichChieu": 41571,
+      "maRap": "463",
+      "tenRap": "Rạp 3",
+      "ngayChieuGioChieu": "2021-01-19T17:50:00",
+      "giaVe": 89000
+    },
+    {
+      "maLichChieu": 42315,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2017-05-24T10:30:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42316,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2021-03-20T12:31:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42318,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2021-03-21T10:30:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42686,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2021-03-06T00:00:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42756,
+      "maRap": "468",
+      "tenRap": "Rạp 8",
+      "ngayChieuGioChieu": "2022-01-01T08:10:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42757,
+      "maRap": "468",
+      "tenRap": "Rạp 8",
+      "ngayChieuGioChieu": "2022-04-02T12:03:04",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42758,
+      "maRap": "469",
+      "tenRap": "Rạp 9",
+      "ngayChieuGioChieu": "2022-01-01T07:08:10",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42759,
+      "maRap": "468",
+      "tenRap": "Rạp 8",
+      "ngayChieuGioChieu": "2023-01-01T07:18:49",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42760,
+      "maRap": "468",
+      "tenRap": "Rạp 8",
+      "ngayChieuGioChieu": "2022-08-21T07:08:09",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42770,
+      "maRap": "469",
+      "tenRap": "Rạp 9",
+      "ngayChieuGioChieu": "2022-12-01T07:08:09",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42771,
+      "maRap": "468",
+      "tenRap": "Rạp 8",
+      "ngayChieuGioChieu": "2022-09-01T07:08:09",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42777,
+      "maRap": "468",
+      "tenRap": "Rạp 8",
+      "ngayChieuGioChieu": "2022-07-01T07:08:09",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42890,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2021-05-03T10:30:00",
+      "giaVe": 75000
+    },
+    {
+      "maLichChieu": 42895,
+      "maRap": "466",
+      "tenRap": "Rạp 6",
+      "ngayChieuGioChieu": "2021-05-05T11:39:16",
+      "giaVe": 99999
+    },
+    {
+      "maLichChieu": 42976,
+      "maRap": "464",
+      "tenRap": "Rạp 4",
+      "ngayChieuGioChieu": "2021-05-22T11:03:00",
+      "giaVe": 105000
+    },
+    {
+      "maLichChieu": 43028,
+      "maRap": "468",
+      "tenRap": "Rạp 8",
+      "ngayChieuGioChieu": "2021-05-24T03:51:22",
+      "giaVe": 77000
+    },
+    {
+      "maLichChieu": 43029,
+      "maRap": "467",
+      "tenRap": "Rạp 7",
+      "ngayChieuGioChieu": "2021-05-24T03:59:54",
+      "giaVe": 79000
+    },
+    {
+      "maLichChieu": 43030,
+      "maRap": "470",
+      "tenRap": "Rạp 10",
+      "ngayChieuGioChieu": "2021-05-24T04:01:39",
+      "giaVe": 88000
+    },
+      {
+          "maLichChieu": 43095,
+          "maRap": "466",
+          "tenRap": "Rạp 6",
+          "ngayChieuGioChieu": "2020-02-04T12:15:00",
+          "giaVe": 90000
+      },
+      {
+          "maLichChieu": 43514,
+          "maRap": "461",
+          "tenRap": "Rạp 1",
+          "ngayChieuGioChieu": "2021-07-07T00:00:00",
+          "giaVe": 75000
+      },
+      {
+          "maLichChieu": 43530,
+          "maRap": "467",
+          "tenRap": "Rạp 7",
+          "ngayChieuGioChieu": "2022-01-01T10:12:00",
+          "giaVe": 80000
+      },
+      {
+          "maLichChieu": 43555,
+          "maRap": "463",
+          "tenRap": "Rạp 3",
+          "ngayChieuGioChieu": "2021-09-18T15:28:00",
+          "giaVe": 120000
+      }
+  ]
+  
+  
+  const res = _.groupBy(list, ele => {
+      const date = ele.ngayChieuGioChieu.slice(0,10);
+  
+      return date
+      
+  })
+  
+  let day = null
+  let list = []
+  
+  for(const key in res) {
+      day = key
+      list = res[key]
+  }
+  
+  return <div>
+  <p>{day}</p>
+  {list.map(ele => <span>ele</span>)}
+  </div>

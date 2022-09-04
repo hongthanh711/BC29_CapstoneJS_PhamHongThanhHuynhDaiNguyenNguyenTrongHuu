@@ -1,5 +1,6 @@
 import { GROUP_ID } from 'constants/common'
 import { request } from '../configs/axios'
+import { pickBy } from 'lodash'
 
 const loginApi = (data) => {
     return request({
@@ -68,16 +69,21 @@ const fetchUserInfoAdminApi = (userId) => {
     })
 }
 
-const updateUserInfoAdminApi = () => {
+const updateUserInfoAdminApi = (data) => {
     return request({
         url: '/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
         method: 'POST',
+        data,
     })
 }
 
 const searchUserApi = (keyWord) => {
     return request({
-        url: `/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=${GROUP_ID}&tuKhoa=${keyWord}`,
+        url: `/QuanLyNguoiDung/TimKiemNguoiDung`,
+        params: {
+            MaNhom: GROUP_ID,
+            ...(keyWord ? { tuKhoa: keyWord } : {}),
+        },
         method: 'GET',
     })
 }
