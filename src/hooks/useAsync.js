@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { LoadingContext } from '../contexts/loading.context'
+import { LoadingContext } from 'contexts/loading.context'
 
 export const useAsync = ({ dependencies = [], service, condition = true }) => {
     const [_, setLoadingState] = useContext(LoadingContext)

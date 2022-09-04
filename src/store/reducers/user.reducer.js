@@ -1,4 +1,4 @@
-import { USER_INFO_KEY } from "../../constants/common";
+import { USER_INFO_KEY } from "constants/common";
 import { SET_USER_INFO } from "../types/user.type";
 
 let userInfo = localStorage.getItem(USER_INFO_KEY);

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
 import { notification } from "antd";
-import { MaLoaiNguoiDung } from "../enums/common";
+import { MaLoaiNguoiDung } from "enums/common";
 
 export default function AdminGuard() {
   const userState = useSelector((state) => state.userReducer);

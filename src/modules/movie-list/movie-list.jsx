@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAsync } from '../../hooks/useAsync';
-import { fetchMovieListApi } from '../../services/movie';
+import { useAsync } from 'hooks/useAsync';
+import { fetchMovieListApi } from 'services/movie';
 import './index.scss';
 export default function MovieList() {
     const navigate = useNavigate();
