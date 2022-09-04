@@ -131,11 +131,11 @@ export default function MovieForm() {
                             return Promise.resolve()
                         },
                     },
-                    // {
-                    //     pattern:
-                    //         '^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹsW|_]+$',
-                    //     message: 'Tên phim không đúng định dạng. ',
-                    // },
+                    {
+                        pattern:
+                            '[a-zA-Z]{4,}',
+                        message: 'Tên phim không đúng định dạng. ',
+                    },
                 ]}
             >
                 <Input />
