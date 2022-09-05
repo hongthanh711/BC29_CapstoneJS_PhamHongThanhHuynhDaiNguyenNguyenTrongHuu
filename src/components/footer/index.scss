@@ -5,4 +5,20 @@
     .brand__footer {
         @include img(50px, 50px)
     }
+
+    .footer_title {
+        @include textGradient($fs-3);
+
+        @include mediaQuery($md) {
+            font-size: $fs-2 ;
+        }
+
+        @include mediaQuery($sm) {
+            font-size: $fs-1 ;
+        }
+
+        @include mediaQuery($xs) {
+            font-size: $fs-9 ;
+        }
+    }
 }

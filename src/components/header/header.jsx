@@ -1,9 +1,10 @@
+import { IconLogo } from 'components/icon';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { USER_INFO_KEY } from '../../constants/common';
 import { setUserInfoAction } from '../../store/actions/user.action';
-import { IconLogo } from "../icon";
+
 import './index.scss';
 
 export default function Header() {
@@ -27,8 +28,10 @@ export default function Header() {
                     <IconLogo />
                 </a>
                 {/* Toggler/collapsibe Button */}
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span className="navbar-toggler-icon" />
+                <button className="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span className="navbar-toggler-icon">
+                        <i className="fas fa-bars"></i>
+                    </span>
                 </button>
                 {/* Navbar links */}
                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
@@ -47,38 +50,40 @@ export default function Header() {
                         </li>
                     </ul>
                 </div>
-                <form className="form-inline" action="/action_page.php">
-                    <input className="form-control mr-sm-2" type="text" placeholder="Search" />
-                    <button className="btn btn-success" type="submit">Search</button>
-                </form>
             </nav>
             {/* Login and Logout buttons  */}
-            < div className="m-auto" >
+            <div className="m-auto">
                 <div className="d-flex justify-content-center btn__display">
                     {!userState.userInfo ? (
                         <>
                             <button
                                 onClick={() => navigate('/login')}
-                                className="btn btn-success m-0">Login
+                                className="login-btn m-0" >Login
                             </button>
-                            <button
-                                onClick={() => navigate('/register-form')}
-                                className="btn btn-danger m-0"
-                                type="sumit"
-                            >Register
+                            <button className="register-btn m-0">Register
                             </button>
 
                         </>) : (
-                        <><h1 className="m-0">Hello Bà {userState.userInfo.hoTen}</h1>
+                        <><h1 className="m-0">Hello Bà {userState.userInfo.hoTen}
+                            <sup
+                                onClick={() => navigate('/profile')}
+                                className='text-info'
+                            >
+                                <i className="far fa-eye"></i>
+                            </sup>
+                        </h1>
+
+                            {/* className="btn btn-danger m-0"> */}
                             <button
                                 onClick={handleLogout}
-                                className="btn btn-danger m-0">Logout
+                                className="logout-btn m-0">Logout
                             </button>
+
                         </>
                     )
                     }
                 </div>
-            </div >
+            </div>
         </header >
 
     );

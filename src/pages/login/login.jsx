@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { USER_INFO_KEY } from '../../constants/common'
-import { loginApi } from '../../services/user'
-import { setUserInfoAction } from '../../store/actions/user.action'
+import { USER_INFO_KEY } from 'constants/common'
+import { loginApi } from 'services/user'
+import { setUserInfoAction } from 'store/actions/user.action'
 
 export default function Login() {
     const dispatch = useDispatch()

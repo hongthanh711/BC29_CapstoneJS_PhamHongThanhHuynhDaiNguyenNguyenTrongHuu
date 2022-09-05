@@ -25,13 +25,15 @@ export default function RegisterForm(props) {
                 maLoaiNguoiDung: props.userInfoFormApi.maLoaiNguoiDung,
             }
             await updateUserInfoApi(dataUpdated)
+            notification.success({
+                message: 'Update successfully  Next login will be updated',
+            })
         } else {
             const data = { ...values, maNhom: GROUP_ID }
 
             await registerApi(data)
+            notification.success({ message: 'Successfully' })
         }
-
-        notification.success({ message: 'Successfully' })
     }
     return (
         <div className="container">
@@ -49,12 +51,17 @@ export default function RegisterForm(props) {
                             rules={[
                                 {
                                     required: true,
-                                    message: 'User Name không được bỏ trống.',
+                                    message: 'Tài Khoản không được bỏ trống.',
                                 },
-                                // {
-                                //     pattern: '^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$',
-                                //     message: 'User Name không đúng định dạng.',
-                                // },
+                                {
+                                    pattern: '[a-zA-Z]{4,}',
+                                    message: 'Tài khoản không đúng định dạng.',
+                                },
+                                {
+                                    min: 6,
+                                    max: 15,
+                                    message: 'Tài khoản phải từ 6-15 ký tự.',
+                                },
                             ]}
                         >
                             <Input />
@@ -65,7 +72,7 @@ export default function RegisterForm(props) {
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Password không được bỏ trống.',
+                                    message: 'Mật khẩu không được bỏ trống.',
                                 },
                             ]}
                         >
@@ -80,8 +87,7 @@ export default function RegisterForm(props) {
                                     message: 'Họ và tên không được bỏ trống.',
                                 },
                                 {
-                                    // pattern:
-                                    //     '^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹsW|_]+$',
+                                    pattern: '[a-zA-Z]{4,}',
                                     message: 'Họ và tên không đúng định dạng.',
                                 },
                             ]}
@@ -110,13 +116,16 @@ export default function RegisterForm(props) {
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Phone Number không được bỏ trống',
-                                    min: 0,
-                                    max: 99,
+                                    message: 'Số phone không được bỏ trống.',
                                 },
                                 {
                                     pattern: /^[0-9\b]+$/,
-                                    message: 'vui lòng không nhập chữ.',
+                                    message: 'Vui lòng không nhập chữ.',
+                                },
+                                {
+                                    min: 0,
+                                    max: 10,
+                                    message: 'Số phone không nhập quá 10 số.',
                                 },
                             ]}
                         >

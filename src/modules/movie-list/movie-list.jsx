@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAsync } from '../../hooks/useAsync';
-import { fetchMovieListApi } from '../../services/movie';
+import { useAsync } from 'hooks/useAsync';
+import { fetchMovieListApi } from 'services/movie';
 import './index.scss';
 export default function MovieList() {
     const navigate = useNavigate();
@@ -36,7 +37,7 @@ export default function MovieList() {
                             </p>
                             <button
                                 onClick={() => navigate(`/movie/${ele.maPhim}`)}
-                                className="btn btn-success">
+                                className="seeMore-btn">
                                 See More
                             </button>
                         </div>
@@ -49,7 +50,7 @@ export default function MovieList() {
     return (
         <section className="py-5 thumbnails">
             <div className="container">
-                <div className="row">
+                <div className="row justify-content-center">
                     {renderMovieList()}
                 </div>
             </div>

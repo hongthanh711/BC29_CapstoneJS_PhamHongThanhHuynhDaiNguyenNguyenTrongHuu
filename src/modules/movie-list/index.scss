@@ -1,13 +1,16 @@
 @import '../../styles/variable';
 @import '../../styles/mixin';
+@import '../../styles/baseBtn';
 
 .thumbnails {
     .item__wrapper {
         position: relative;
 
+
         &:hover .thumb__overlay {
             opacity: 1;
             transform: translate(-50%, -50%);
+            display: block;
             transition: all 0.4s ease-in-out;
         }
 
@@ -33,17 +36,20 @@
             top: 50%;
             left: 50%;
             opacity: 0;
+            display: none;
 
+            .thumb__describe {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: whitesmoke;
+                text-shadow: 1px 1px 1px #8fe096;
+            }
+
+            .seeMore-btn {
+                @extend .my-btn;
+                box-shadow: 0 0 0 4.8rem $theme-3 inset;
+            }
         }
-
-        .thumb__describe {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            color: whitesmoke;
-            text-shadow: 1px 1px 1px #8fe096;
-        }
-
-
     }
 }

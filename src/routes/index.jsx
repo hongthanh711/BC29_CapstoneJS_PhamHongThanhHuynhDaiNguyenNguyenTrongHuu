@@ -1,14 +1,14 @@
 import React, { lazy } from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
 
-const AdminGuard = lazy(() => import('../guards/admin.guard'))
-const AuthGuard = lazy(() => import('../guards/auth.guard'))
-const NoAuthGuard = lazy(() => import('../guards/no-auth.guard'))
-const AdminLayout = lazy(() => import('../layouts/admin'))
+const AdminGuard = lazy(() => import('guards/admin.guard'))
+const AuthGuard = lazy(() => import('guards/auth.guard'))
+const NoAuthGuard = lazy(() => import('guards/no-auth.guard'))
+const AdminLayout = lazy(() => import('layouts/admin'))
 const Booking = lazy(() => import('pages/booking/booking'))
 const Login = lazy(() => import('pages/login/login'))
 const MovieManagement = lazy(() => import('pages/movie-management/movie-management'))
-const HomeLayout = lazy(() => import('../layouts/home'))
+const HomeLayout = lazy(() => import('layouts/home'))
 const Home = lazy(() => import('pages/home/home'))
 const MovieDetail = lazy(() => import('pages/movie-detail/movie-detail'))
 const CreateMovie = lazy(() => import('pages/create-movie/create-movie'))

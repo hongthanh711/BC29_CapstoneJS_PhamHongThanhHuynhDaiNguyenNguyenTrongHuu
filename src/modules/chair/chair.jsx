@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { LoaiGhe } from "../../enums/common";
-
+import { LoaiGhe } from "enums/common";
 import "./index.scss";
 
 export default function Chair(props) {

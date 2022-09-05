@@ -1,4 +1,5 @@
 import { Spin } from 'antd';
+import NyanCatLoader from 'components/loader/nyan-cat-loader';
 import { createContext, useEffect, useState } from 'react';
 import { WrapperSpin } from './styled';
 
@@ -33,10 +34,10 @@ const LoadingProvider = (props) => {
   return (
     <LoadingContext.Provider value={[state, setState]}>
       {state.isLoading && (
-        <WrapperSpin viewHeight="100vh">
-          <Spin />
-          {/* <p></p> */}
-        </WrapperSpin>
+        // <WrapperSpin viewHeight="100vh">
+        //   <Spin />
+        // </WrapperSpin>
+        <NyanCatLoader />
       )}
       {props.children}
     </LoadingContext.Provider>

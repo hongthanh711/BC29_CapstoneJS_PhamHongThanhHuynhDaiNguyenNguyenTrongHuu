@@ -1,30 +1,33 @@
 @import '../../styles/variable';
 @import '../../styles/mixin';
+@import '../../styles/baseBtn';
 
 .seat {
-    background-color: pink;
-    border: solid 2px rgba(0, 0, 0, 0.105);
-    border-radius: 20px 20px 5px 5px;
-    width: 3em;
-    height: 2em;
-    padding: .3em;
-    margin: .4em;
-    text-align: center;
+    @extend .base-seat;
+
+    &:hover {
+        transform: translateY(-5px);
+        background-color: $selecting;
+    }
 
     &:focus {
         outline: 0;
     }
 
     &.Vip {
-        background-color: violet;
+        background-color: $vip;
+
+        &:hover {
+            background-color: $selecting;
+        }
     }
 
     &.selecting {
-        background-color: rgba(78, 156, 78, 0.655);
+        background-color: $selecting;
     }
 
     &.daDat {
-        background-color: red;
+        background-color: $booked;
         cursor: no-drop;
     }
 }

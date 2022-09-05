@@ -47,7 +47,6 @@ export default function UserForm() {
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-6">
-                    {/* validateMessages={validateMessages}  name="nest-messages"*/}
                     <Form form={form} {...layout} onFinish={onFinish}>
                         <div className="form-group text-center">
                             {params.userId ? <h1>UPDATE USER</h1> : <h1>ADD USER</h1>}
@@ -58,11 +57,16 @@ export default function UserForm() {
                             rules={[
                                 {
                                     required: true,
-                                    message: 'User Name không được bỏ trống.',
+                                    message: 'Tài khoản không được bỏ trống.',
                                 },
                                 {
-                                    pattern: '^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$',
-                                    message: 'User Name không đúng định dạng.',
+                                    pattern: '[a-zA-Z]{4,}',
+                                    message: 'Tài khoản không đúng định dạng.',
+                                },
+                                {
+                                    min: 6,
+                                    max: 15,
+                                    message: 'Tài khoản phải từ 6-15 ký tự.',
                                 },
                             ]}
                         >
@@ -74,7 +78,7 @@ export default function UserForm() {
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Password không được bỏ trống.',
+                                    message: 'Mật khẩu không được bỏ trống.',
                                 },
                             ]}
                         >
@@ -88,11 +92,10 @@ export default function UserForm() {
                                     required: true,
                                     message: 'Họ và tên không được bỏ trống.',
                                 },
-                                // {
-                                //     pattern:
-                                //         '^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹsW|_]+$',
-                                //     message: 'Họ và tên không đúng định dạng.',
-                                // },
+                                {
+                                    pattern: '[a-zA-Z]{4,}',
+                                    message: 'Họ và tên không đúng định dạng.',
+                                },
                             ]}
                         >
                             <Input />
@@ -114,18 +117,21 @@ export default function UserForm() {
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            name="soDt"
+                            name="soDT"
                             label="Phone Number"
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Phone Number không được bỏ trống',
-                                    min: 0,
-                                    max: 99,
+                                    message: 'Số phone không được bỏ trống.',
                                 },
                                 {
                                     pattern: /^[0-9\b]+$/,
-                                    message: 'vui lòng không nhập chữ.',
+                                    message: 'Vui lòng không nhập chữ.',
+                                },
+                                {
+                                    min: 0,
+                                    max: 10,
+                                    message: 'Số phone không nhập quá 10 số.',
                                 },
                             ]}
                         >
@@ -156,7 +162,7 @@ export default function UserForm() {
                         </Form.Item>
                     </Form>
                     <a onClick={() => navigate('/admin/user-management')} className="text-primary">
-                        &lt;&lt;Back
+                        &lt;&lt; Back
                     </a>
                 </div>
             </div>

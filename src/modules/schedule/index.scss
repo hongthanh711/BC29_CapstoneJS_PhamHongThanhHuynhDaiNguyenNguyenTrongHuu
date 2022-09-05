@@ -1,38 +1,57 @@
-.tab-custom {
-    .ant-tabs-tabpane {
-        padding-left: 0 !important;
-        .ant-tabs-nav {
-            width: 250px;
-            height: 550px;
+@import '../../styles/variable';
+@import '../../styles/mixin';
+@import '../../styles/baseBtn';
 
-            .ant-tabs-tab {
-                width: 100%;
-                padding-right: 10px;
-                padding-left: 10px;
-                .ant-tabs-tab-btn {
+.schedule__wrapper {
+    overflow-x: scroll;
+
+    .tab-custom {
+        .ant-tabs-tabpane {
+            padding-left: 0 !important;
+
+            .ant-tabs-nav {
+                width: 250px;
+                height: 550px;
+
+                .ant-tabs-tab {
                     width: 100%;
-                    h5,
-                    p {
-                        white-space: break-spaces;
-                        text-align: left;
-                        font-size: 16px;
+                    padding-right: 10px;
+                    padding-left: 10px;
+
+                    .ant-tabs-tab-btn {
+                        width: 100%;
+
+                        h5,
+                        p {
+                            white-space: break-spaces;
+                            text-align: left;
+                            font-size: 16px;
+                        }
                     }
                 }
             }
         }
-    }
-    .ant-tabs-nav-more {
-        display: none !important;
-    }
-}
 
-.as {
-    overflow-y: scroll;
-    width: 450px !important;
-    height: 550px;
-}
+        .ant-tabs-nav-more {
+            display: none !important;
+        }
+    }
 
-.ant-btn {
-    width: 40%;
-    margin: 2%;
+    .as {
+        overflow-y: scroll;
+        width: 450px !important;
+        height: 550px;
+    }
+
+    .ant-btn {
+        width: 45%;
+        text-align: center;
+        margin: $m-2;
+        font-size: $fs-9;
+        @extend .my-btn;
+        color: $black-1;
+        box-shadow: 0 0 0 4.8rem $light-1 inset;
+
+
+    }
 }
