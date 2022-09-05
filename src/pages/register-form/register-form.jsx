@@ -1,21 +1,23 @@
-import { Button, Form, Input, InputNumber, notification } from 'antd'
-import { GROUP_ID } from 'constants/common'
-import React, { useEffect } from 'react'
-import { updateUserInfoApi } from 'services/user'
-import { registerApi } from 'services/user'
+import { Button, Form, Input, InputNumber, notification } from 'antd';
+import { GROUP_ID } from 'constants/common';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { updateUserInfoApi } from 'services/user';
+import { registerApi } from 'services/user';
+
 const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
-}
+};
 
 export default function RegisterForm(props) {
-    const [form] = Form.useForm()
-
+    const [form] = Form.useForm();
+    const navigate = useNavigate();
     useEffect(() => {
         if (props.userInfoFormApi) {
-            form.setFieldsValue(props.userInfoFormApi)
+            form.setFieldsValue(props.userInfoFormApi);
         }
-    }, [props.userInfoFormApi])
+    }, [props.userInfoFormApi]);
 
     const onFinish = async (values) => {
         if (props.userInfoFormApi) {
@@ -23,18 +25,22 @@ export default function RegisterForm(props) {
                 ...values,
                 maNhom: GROUP_ID,
                 maLoaiNguoiDung: props.userInfoFormApi.maLoaiNguoiDung,
-            }
-            await updateUserInfoApi(dataUpdated)
+            };
+            await updateUserInfoApi(dataUpdated);
             notification.success({
                 message: 'Update successfully  Next login will be updated',
-            })
+            });
         } else {
-            const data = { ...values, maNhom: GROUP_ID }
+            const data = { ...values, maNhom: GROUP_ID };
 
-            await registerApi(data)
-            notification.success({ message: 'Successfully' })
+            await registerApi(data);
+            notification.success({ message: 'Successfully' });
+
+            navigate("/");
         }
-    }
+
+
+    };
     return (
         <div className="container">
             <div className="row justify-content-center">
@@ -76,7 +82,7 @@ export default function RegisterForm(props) {
                                 },
                             ]}
                         >
-                            <Input />
+                            <Input.Password />
                         </Form.Item>
                         <Form.Item
                             name="hoTen"
@@ -140,5 +146,5 @@ export default function RegisterForm(props) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

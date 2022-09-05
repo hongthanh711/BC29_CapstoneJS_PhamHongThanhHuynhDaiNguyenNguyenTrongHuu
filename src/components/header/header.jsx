@@ -40,7 +40,7 @@ export default function Header() {
                             <a className="nav-link nav__header active" onClick={() => navigate('/')}>Home</a>
                         </li>
                         <li className="nav-item mr-4 nav__li">
-                            <a className="nav-link nav__header" target="_blank" href="https://www.facebook.com/hthanh711">Contact</a>
+                            <a className="nav-link nav__header" target="_blank" href="https://www.psychologytoday.com/intl">Contact</a>
                         </li>
                         <li className="nav-item mr-4 nav__li">
                             <a className="nav-link nav__header" target="_blank" href="https://kenh14.vn/">News</a>
@@ -60,11 +60,13 @@ export default function Header() {
                                 onClick={() => navigate('/login')}
                                 className="login-btn m-0" >Login
                             </button>
-                            <button className="register-btn m-0">Register
+                            <button
+                                onClick={() => navigate('/register-form')}
+                                className="register-btn m-0">Register
                             </button>
 
                         </>) : (
-                        <><h1 className="m-0">Hello Bà {userState.userInfo.hoTen}
+                        <><h1 className="m-0">Hello {userState.userInfo.hoTen}
                             <sup
                                 onClick={() => navigate('/profile')}
                                 className='text-info'
