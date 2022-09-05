@@ -1,18 +1,18 @@
-import './index.scss'
-import React from 'react'
-import IconCgv from '../icon/icon-cgv'
-import { IconBhd, IconGPlay } from '../icon'
-import IconLotte from '../icon/icon-lotte'
-import IconCinestar from '../icon/icon-cinestar'
-import IconAppStore from '../icon/icon-app-store'
+import './index.scss';
+import React from 'react';
+import IconCgv from '../icon/icon-cgv';
+import { IconBhd, IconGPlay } from '../icon';
+import IconLotte from '../icon/icon-lotte';
+import IconCinestar from '../icon/icon-cinestar';
+import IconAppStore from '../icon/icon-app-store';
 
 export default function Footer() {
     return (
         <section className="pt-5 footer">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-3">
-                        <h1 className="text-center">Brands</h1>
+                    <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
+                        <h1 className="text-center footer_title ">Brands</h1>
                         <ul className="nav justify-content-around">
                             <li className="nav-item">
                                 <a className="nav-link" href="https://www.cgv.vn/" target="_blank">
@@ -37,8 +37,8 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-lg-3">
-                        <h1 className="text-center">Contact Us</h1>
+                    <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
+                        <h1 className="text-center footer_title">Contact Us</h1>
                         <ul className="nav flex-column">
                             <li className="nav-item">
                                 <iframe
@@ -58,12 +58,11 @@ export default function Footer() {
                                     href="https://goo.gl/maps/TVMiX7a1m1Rw1qKm6"
                                     target="_blank"
                                 >
-                                    Address: 33 Nguyễn Kim st, w.12, Dis.5
+                                    Address: 33 Nguyễn Kim st, Dis.5
                                 </a>
                             </li>
                             <li className="nav-item">Tax: 2354234523454345</li>
                             <li className="nav-item">
-                                Find us at:
                                 <ul className="nav">
                                     <li className="nav-item">
                                         <a className="nav-link" href="#">
@@ -89,8 +88,8 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-lg-3">
-                        <h1 className="text-center">News</h1>
+                    <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
+                        <h1 className="text-center footer_title">News</h1>
                         <ul className="nav flex-column">
                             <li className="nav-item">
                                 <a className="nav-link d-flex justify-content-center " href="#">
@@ -114,8 +113,8 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-lg-3">
-                        <h1 className="text-center">Available on:</h1>
+                    <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
+                        <h1 className="text-center footer_title">Available on:</h1>
                         <ul className="nav justify-content-center">
                             <li className="nav-item">
                                 <a className="nav-link" href="#">
@@ -132,5 +131,5 @@ export default function Footer() {
                 </div>
             </div>
         </section>
-    )
+    );
 }

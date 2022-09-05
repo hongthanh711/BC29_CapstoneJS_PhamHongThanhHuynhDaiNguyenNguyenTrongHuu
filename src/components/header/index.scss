@@ -1,5 +1,6 @@
 @import '../../styles/variable';
 @import '../../styles/mixin';
+@import '../../styles/baseBtn';
 
 .header {
   position: inherit;
@@ -10,7 +11,12 @@
     cursor: pointer;
   }
 
+  .navbar-toggler-icon {
+    @include textGradient($fs-3)
+  }
+
   .nav__header {
+    width: fit-content;
     @include textGradient($fs-3);
     position: relative;
     cursor: pointer;
@@ -38,10 +44,23 @@
       width: 100%;
       opacity: 1;
     }
+
+    @include mediaQuery($md) {
+      font-size: $fs-2 ;
+    }
+
+    @include mediaQuery($sm) {
+      font-size: $fs-1 ;
+    }
+
+    @include mediaQuery($xs) {
+      font-size: $fs-9 ;
+    }
+
   }
 
   .btn__display {
-    // background-image: url('../../../public/images/user-bg.jpg');
+    background-image: url('../../assets/images/user-bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -50,5 +69,42 @@
     justify-content: center;
     flex-wrap: nowrap;
     gap: 1em;
+
+    .login-btn {
+      @extend .my-btn
+    }
+
+    .register-btn {
+      @extend .my-btn;
+      box-shadow: 0 0 0 4.8rem $theme-2 inset;
+    }
+
+    .logout-btn {
+      @extend .my-btn;
+      box-shadow: 0 0 0 4.8rem $theme-3 inset;
+    }
+
+
+    & h1 {
+
+      @include textStyle($fs-4, $fw-4, $lh-2, $theme-3);
+
+      @include mediaQuery($md) {
+        font-size: $fs-3 ;
+      }
+
+      @include mediaQuery($sm) {
+        font-size: $fs-2 ;
+      }
+
+      @include mediaQuery($xs) {
+        font-size: $fs-1 ;
+      }
+
+      & sup {
+        cursor: pointer;
+      }
+    }
   }
+
 }

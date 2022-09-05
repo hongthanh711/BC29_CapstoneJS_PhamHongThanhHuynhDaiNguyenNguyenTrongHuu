@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { fetchMovieShowTimesApi } from 'services/cinema'
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { fetchMovieShowTimesApi } from 'services/cinema';
 
 import "./index.scss";
-import { formatDate } from 'utils/common'
+import { formatDate } from 'utils/common';
 
 
 export default function ShowTimes() {
@@ -47,20 +47,22 @@ export default function ShowTimes() {
                             <div
                                 key={ele.maCumRap}
                                 className="row mb-5">
-                                <div className="col-12 pl-0">
-                                    <h5>{ele.tenCumRap}</h5>
-                                    <span className="text-muted">{ele.diaChi}</span>
+                                <div className="col-12 pl-0 text-center mb-3">
+                                    <h5 className='showtimes__tenCumRap'>{ele.tenCumRap}</h5>
+                                    <span className="diaChi text-muted">{ele.diaChi}</span>
                                 </div>
-                                <div className="col-12">
-                                    <div className="row">
+                                <div className="col-12 text-center">
+                                    <div className="row justify-content-center">
                                         {ele.lichChieuPhim.map((ele) => {
                                             return (
                                                 <div
                                                     key={ele.maLichChieu}
-                                                    className="col-3">
-                                                    <Link to={`/booking/${ele.maLichChieu}`}>
-                                                        {formatDate(ele.ngayChieuGioChieu)}
-                                                    </Link>
+                                                    className="col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
+                                                    <button className='lichChieuBtn'>
+                                                        <Link to={`/booking/${ele.maLichChieu}`}>
+                                                            {formatDate(ele.ngayChieuGioChieu)}
+                                                        </Link>
+                                                    </button>
                                                 </div>
                                             );
                                         })}
@@ -75,12 +77,12 @@ export default function ShowTimes() {
     };
 
     return (
-        <section className="py-5">
+        <section className="py-5 showtimes__wrapper">
             <div className="container">
-                <h1 className="text-center">Shows Time</h1>
+                <h1 className="showtimes__tenPhim mb-5">Shows Time</h1>
                 <div className="row">
                     {/* Nav pills */}
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 col-md-3 col-sm-2 col-xs-1 ">
                         <ul className="nav nav-pills cinema__pills flex-column " role="tablist">
                             <li className="nav-item">
                                 {renderTabs()}
@@ -89,7 +91,7 @@ export default function ShowTimes() {
                         </ul>
                     </div>
                     {/* Tab panes */}
-                    <div className="col-lg-8">
+                    <div className="col-lg-8 col-md-9 col-sm-10 col-xs-11 ">
                         <div className="tab-content">
                             {renderContent()}
                         </div>

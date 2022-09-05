@@ -2,8 +2,10 @@
 $theme-1: #0561a9;
 $theme-2: #7359c5;
 $theme-3: #d819a5;
-
-$black: #000;
+$booked: red;
+$selecting: rgba(78, 156, 78, 0.655);
+$vip: violet;
+$standard: pink;
 $black-1: rgba(0, 0, 0, 0.8);
 $black-2: rgba(0, 0, 0, 0.2);
 $light: #fff;
@@ -12,9 +14,9 @@ $light-2: rgba(255, 255, 255, 0.4);
 
 // padding
 
-$pd-1: 0.4em;
-$pd-2: 0.8em;
-$pd-3: 1.2em;
+$pd-1: .3em;
+$pd-2: .8em;
+$pd-3: 1em;
 $pd-4: 1.6em;
 $pd-5: 2em;
 $pd-6: 3em;
@@ -47,7 +49,8 @@ $fs-5: 2rem;
 $fs-6: 2.5em;
 $fs-7: 3rem;
 $fs-8: 6rem;
-
+$fs-9: .8rem;
+$fs-10: .5rem;
 // font weight
 
 $fw-0: initial;
