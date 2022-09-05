@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { scheduleCinemaApi } from 'services/cinema'
 import { fetchCinemaListApi } from 'services/cinema'
 import { formatDate } from 'utils/common'
+
+import _ from 'lodash'
 import './index.scss'
 
 const { TabPane } = Tabs
@@ -27,78 +29,30 @@ export default function Schedule() {
         setCinemas(result.data.content)
     }
 
-    const renderTabs = () => {
-        return cinemaList.map((ele, index) => {
-            return (
-                <TabPane
-                    tab={
-                        <div style={{ width: '100px', height: '100px' }}>
-                            <img className="w-100" src={ele.logo} alt="" />
-                        </div>
-                    }
-                    key={index}
-                >
-                    <Tabs tabPosition="left">{renderCinena(ele.maHeThongRap)}</Tabs>
-                </TabPane>
-            )
+    const renderTime = (list) => {
+        const res = _.groupBy(list, (ele) => {
+            const date = ele.ngayChieuGioChieu.slice(0, 10)
+
+            return date
         })
-    }
+        let day = null
+        let listDate = []
 
-    const renderCinena = (maHeThongRap) => {
-        const idx = cinemas.findIndex((cinema) => cinema.maHeThongRap === maHeThongRap)
-        if (idx !== -1) {
-            return cinemas[idx].lstCumRap.map((cinema) => {
-                return (
-                    <TabPane
-                        tab={
-                            <div style={{ width: '200px' }}>
-                                <h3>{cinema.tenCumRap}</h3>
-                                <p>{cinema.diaChi}</p>
-                                <hr />
-                            </div>
-                        }
-                        key={cinema.maCumRap}
-                    >
-                        <Tabs tabPosition="left" style={{ height: 1000 }}>
-                            {cinema.danhSachPhim.map((movie) => {
-                                return (
-                                    <TabPane
-                                        style={{ height: 1000, overflow: 'scroll' }}
-                                        tab={
-                                            <div style={{ width: '200px' }}>
-                                                <h4>{movie.tenPhim}</h4>
-                                                <img
-                                                    className="img-fluid"
-                                                    src={movie.hinhAnh}
-                                                    alt=""
-                                                />
-                                            </div>
-                                        }
-                                        key={movie.maPhim}
-                                    >
-                                        {movie.lstLichChieuTheoPhim.map((time) => {
-                                            return (
-                                                <div
-                                                    key={time.maLichChieu}
-                                                    className="m-2 d-inline-block"
-                                                >
-                                                    <Button>
-                                                        {formatDate(time.ngayChieuGioChieu)}
-                                                    </Button>
-                                                </div>
-                                            )
-                                        })}
-                                    </TabPane>
-                                )
-                            })}
-                        </Tabs>
-                    </TabPane>
-                )
-            })
+        for (const key in res) {
+            day = key
+            listDate = res[key]
         }
+        return (
+            <div>
+                <p>{day}</p>
+                {listDate.map((ele) => (
+                    <span>{ele}</span>
+                ))}
+            </div>
+        )
     }
 
-    const render1 = () => {
+    const renderTabs = () => {
         return cinemas.map((cinema, idx) => {
             return (
                 <TabPane tab={<img style={{ width: 50 }} src={cinema.logo} />} key={idx}>
@@ -146,13 +100,16 @@ export default function Schedule() {
                                                     }
                                                     key={idx}
                                                 >
-                                                    {movie.lstLichChieuTheoPhim.map((time) => {
-                                                        return (
-                                                            <Button key={time.maLichChieu}>
-                                                                {formatDate(time.ngayChieuGioChieu)}
-                                                            </Button>
-                                                        )
-                                                    })}
+                                                    {
+                                                        // movie.lstLichChieuTheoPhim.map((time) => {
+                                                        //     return (
+                                                        //         <Button key={time.maLichChieu}>
+                                                        //             {formatDate(time.ngayChieuGioChieu)}
+                                                        //         </Button>
+                                                        //     )
+                                                        // })
+                                                        renderTime(movie.lstLichChieuTheoPhim)
+                                                    }
                                                 </TabPane>
                                             )
                                         })}
@@ -166,13 +123,10 @@ export default function Schedule() {
         })
     }
 
-    const render2 = () => {}
-
     return (
         <div className="container tab">
-            {/* <Tabs tabPosition="left">{renderTabs()}</Tabs> */}
             <Tabs className="tab-custom" tabPosition="left">
-                {render1()}
+                {renderTabs()}
             </Tabs>
         </div>
     )
