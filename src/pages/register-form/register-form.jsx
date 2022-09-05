@@ -25,13 +25,15 @@ export default function RegisterForm(props) {
                 maLoaiNguoiDung: props.userInfoFormApi.maLoaiNguoiDung,
             }
             await updateUserInfoApi(dataUpdated)
+            notification.success({
+                message: 'Update successfully  Next login will be updated',
+            })
         } else {
             const data = { ...values, maNhom: GROUP_ID }
 
             await registerApi(data)
+            notification.success({ message: 'Successfully' })
         }
-
-        notification.success({ message: 'Successfully' })
     }
     return (
         <div className="container">
@@ -58,8 +60,8 @@ export default function RegisterForm(props) {
                                 {
                                     min: 6,
                                     max: 15,
-                                    message: 'Tài khoản phải từ 6-15 ký tự.'
-                                }
+                                    message: 'Tài khoản phải từ 6-15 ký tự.',
+                                },
                             ]}
                         >
                             <Input />
@@ -85,8 +87,7 @@ export default function RegisterForm(props) {
                                     message: 'Họ và tên không được bỏ trống.',
                                 },
                                 {
-                                    pattern:
-                                        '[a-zA-Z]{4,}',
+                                    pattern: '[a-zA-Z]{4,}',
                                     message: 'Họ và tên không đúng định dạng.',
                                 },
                             ]}
@@ -124,8 +125,8 @@ export default function RegisterForm(props) {
                                 {
                                     min: 0,
                                     max: 10,
-                                    message: 'Số phone không nhập quá 10 số.'
-                                }
+                                    message: 'Số phone không nhập quá 10 số.',
+                                },
                             ]}
                         >
                             <Input />

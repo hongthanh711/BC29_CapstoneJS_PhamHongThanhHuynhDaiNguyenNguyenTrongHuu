@@ -1,31 +1,43 @@
-import { Button, Radio, Space, Tabs } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { scheduleCinemaApi } from 'services/cinema';
-import { fetchCinemaListApi } from 'services/cinema';
-import { formatDate } from 'utils/common';
-import './index.scss';
+import { Button, Radio, Space, Tabs } from 'antd'
+import { useAsync } from 'hooks/useAsync'
+import React, { useEffect, useState } from 'react'
+import { scheduleCinemaApi } from 'services/cinema'
+import { fetchCinemaListApi } from 'services/cinema'
+import { formatDate } from 'utils/common'
 
-const { TabPane } = Tabs;
+import _ from 'lodash'
+
+import './index.scss'
+
+const { TabPane } = Tabs
 
 export default function Schedule() {
-    const [cinemaList, setCinemaList] = useState([]);
-    const [cinemas, setCinemas] = useState([]);
+    const { state: cinemas = [] } = useAsync({
+        service: () => scheduleCinemaApi(),
+    })
 
-    useEffect(() => {
-        fetchCinemaList();
-        scheduleCinema();
-    }, []);
-
-    const fetchCinemaList = async () => {
-        const result = await fetchCinemaListApi();
-
-        setCinemaList(result.data.content);
-    };
-
-    const scheduleCinema = async () => {
-        const result = await scheduleCinemaApi();
-        setCinemas(result.data.content);
-    };
+    // const renderTime = (list) => {
+    //     const res = _.groupBy(list, (ele) => {
+    //         return ele.ngayChieuGioChieu.slice(0, 10)
+    //     })
+    //     console.log(res)
+    //     let day = null
+    //     let listDate = []
+    //     for (const key in res) {
+    //         day = key
+    //         listDate = res[key]
+    //         return (
+    //             <div>
+    //                 <p>{day}</p>
+    //                 {listDate.map((ele) => (
+    //                     <button className="btn btn-success">
+    //                         {ele.ngayChieuGioChieu.slice(11, 19)}
+    //                     </button>
+    //                 ))}
+    //             </div>
+    //         )
+    //     }
+    // }
 
     const renderTabs = () => {
         return cinemas.map((cinema, idx) => {
@@ -80,28 +92,29 @@ export default function Schedule() {
                                                             <Button key={time.maLichChieu}>
                                                                 {formatDate(time.ngayChieuGioChieu)}
                                                             </Button>
-                                                        );
+                                                        )
                                                     })}
+                                                    {/* {renderTime(movie.lstLichChieuTheoPhim)} */}
                                                 </TabPane>
-                                            );
+                                            )
                                         })}
                                     </Tabs>
                                 </TabPane>
-                            );
+                            )
                         })}
                     </Tabs>
                 </TabPane>
-            );
-        });
-    };
+            )
+        })
+    }
 
     return (
-        <div className='schedule__wrapper'>
+        <div className="schedule__wrapper">
             <div className="container tab">
                 <Tabs className="tab-custom" tabPosition="left">
                     {renderTabs()}
                 </Tabs>
             </div>
         </div>
-    );
+    )
 }

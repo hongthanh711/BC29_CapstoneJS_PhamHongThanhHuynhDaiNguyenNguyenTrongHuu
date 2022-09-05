@@ -77,12 +77,12 @@ const updateUserInfoAdminApi = (data) => {
     })
 }
 
-const searchUserApi = (keyWord) => {
+const searchUserApi = (keyword) => {
     return request({
         url: `/QuanLyNguoiDung/TimKiemNguoiDung`,
         params: {
             MaNhom: GROUP_ID,
-            ...(keyWord ? { tuKhoa: keyWord } : {}),
+            ...(keyword ? { tuKhoa: keyword } : {}),
         },
         method: 'GET',
     })
