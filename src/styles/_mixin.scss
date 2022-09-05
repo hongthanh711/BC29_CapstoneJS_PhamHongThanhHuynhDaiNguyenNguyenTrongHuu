@@ -50,6 +50,7 @@
 
 @mixin textGradient($fs) {
     font-size: $fs;
+    color: unset;
     background: -webkit-linear-gradient($theme-1, $theme-2, $theme-3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
