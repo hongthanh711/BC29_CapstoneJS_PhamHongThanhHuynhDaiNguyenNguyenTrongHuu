@@ -1,14 +1,20 @@
-import './index.scss';
-import React from 'react';
-import IconCgv from '../icon/icon-cgv';
-import { IconBhd, IconGPlay } from '../icon';
-import IconLotte from '../icon/icon-lotte';
-import IconCinestar from '../icon/icon-cinestar';
-import IconAppStore from '../icon/icon-app-store';
+import './index.scss'
+import React from 'react'
+import IconCgv from '../icon/icon-cgv'
+import { IconBhd, IconGPlay, IconLogo } from '../icon'
+import IconLotte from '../icon/icon-lotte'
+import IconCinestar from '../icon/icon-cinestar'
+import IconAppStore from '../icon/icon-app-store'
 
 export default function Footer() {
     return (
-        <section className="pt-5 footer">
+        <section className="mt-5 footer">
+            <div className="line"></div>
+            <div className="logo text-center py-3">
+                <a className="navbar-brand ">
+                    <IconLogo />
+                </a>
+            </div>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
@@ -16,7 +22,6 @@ export default function Footer() {
                         <ul className="nav justify-content-around">
                             <li className="nav-item">
                                 <a className="nav-link" href="https://www.cgv.vn/" target="_blank">
-                                    {/* <img className="brand__footer" src="./images/cgv.png" alt="cgvFooter" /> */}
                                     <IconCgv />
                                 </a>
                             </li>
@@ -61,7 +66,7 @@ export default function Footer() {
                                     Address: 33 Nguyễn Kim st, Dis.5
                                 </a>
                             </li>
-                            <li className="nav-item">Tax: 2354234523454345</li>
+                            <li className="nav-item">Phone: 0353626765</li>
                             <li className="nav-item">
                                 <ul className="nav">
                                     <li className="nav-item">
@@ -130,6 +135,22 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+            <div className="copy-right text-center mt-3 py-3">
+                <img
+                    width="200px"
+                    src="https://cinestar.com.vn/catalog/view/theme/default/images/dathongbao.png"
+                />
+
+                <p>
+                    CÔNG TY CỔ PHẦN GIẢI TRÍ PHÁT HÀNH PHIM – RẠP CHIẾU PHIM NGÔI SAO
+                    <br />
+                    ĐỊA CHỈ: 135 HAI BÀ TRƯNG, PHƯỜNG BẾN NGHÉ, QUẬN 1, TP.HCM
+                    <br />
+                    GIẤY CNĐKDN SỐ: 0312742744, ĐĂNG KÝ LẦN ĐẦU NGÀY 18/04/2014, ĐĂNG KÝ THAY ĐỔI
+                    LẦN THỨ 2 NGÀY 15/09/2014, CẤP BỞI SỞ KH&ĐT TP.HCM
+                </p>
+                <p>2015 © TRICINEMA. ALL RIGHTS RESERVED.</p>
+            </div>
         </section>
-    );
+    )
 }
