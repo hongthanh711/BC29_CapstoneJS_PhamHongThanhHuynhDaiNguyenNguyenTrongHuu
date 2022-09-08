@@ -4,44 +4,60 @@
 
 .thumbnails {
     .item__wrapper {
-        position: relative;
+        background-color: transparent;
+        width: 100%;
+        height: 300px;
+        perspective: 1000px;
+        border-radius: 5px;
+        padding: 0.5em 0;
 
-        &:hover .thumb__overlay {
-            opacity: 1;
-            transform: translate(-50%, -50%);
-            display: block;
-            transition: all 0.4s ease-in-out;
+        &:hover .item__container {
+            transform: rotateY(180deg);
         }
 
-        &:hover .thumb__item .thumb-img {
-            filter: contrast(50%);
+        .item__container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .thumb__item,
+        .thumb__overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         .thumb__item {
-            & .thumb-img {
+            .thumb-img {
                 width: 100%;
-                height: 350px;
+                height: 100%;
                 object-fit: cover;
                 object-position: center;
-                transition: all 0.4s ease-in-out;
                 border-radius: 5px;
+
             }
         }
 
         .thumb__overlay {
-            width: 80%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            opacity: 0;
-            display: none;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
             .thumb__describe {
-                white-space: nowrap;
+                width: 100%;
+                height: 100%;
                 overflow: hidden;
-                text-overflow: ellipsis;
-                color: whitesmoke;
-                text-shadow: 1px 1px 1px #8fe096;
+                color: $theme-1;
             }
 
             .seeMore-btn {
